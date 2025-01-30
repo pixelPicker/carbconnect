@@ -1,9 +1,13 @@
 import { useState } from 'react'
+import Header from './ProjectComponents/Header'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
     <>
-      <h1 className=''>Goddie</h1>
+      <Header />
+      <Outlet />
+
     </>
   )
 }

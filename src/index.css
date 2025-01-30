@@ -5,3 +5,44 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Smooch';
+  src: url('/assets/fonts/SmoochSans-Medium.ttf');
+}
+@font-face {
+  font-family: 'Karla';
+  src: url('/assets/fonts/Karla-Regular.ttf');
+}
+@font-face {
+  font-family: 'Outfit';
+  src: url('/assets/fonts/Outfit-Regular.ttf');
+}
+@font-face {
+  font-family: 'OutfitBold';
+  src: url('/assets/fonts/Outfit-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'CornerStone';
+  src: url('/assets/fonts/Cornerstone.ttf');
+}
+
+@theme {
+  --font-Smooch: 'Smooch';
+  --font-Karla: 'Karla';
+  --font-Outfit: 'Outfit';
+  --font-OutfitBold: 'OutfitBold';
+  --font-CornerStone: 'CornerStone';
+}
+
+@layer utilities {
+  .bg-striped {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      hsla(220, 9%, 76%, 0.1) 1px, /* gray-500 with 20% opacity */
+      hsla(220, 9%, 76%, 0.1) 21px
+    );
+  }
+}
