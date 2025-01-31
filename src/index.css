@@ -8,23 +8,23 @@
 
 @font-face {
   font-family: 'Smooch';
-  src: url('/assets/fonts/SmoochSans-Medium.ttf');
+  src: url('src/assets/fonts/SmoochSans-Medium.ttf');
 }
 @font-face {
   font-family: 'Karla';
-  src: url('/assets/fonts/Karla-Regular.ttf');
+  src: url('src/assets/fonts/Karla-Regular.ttf');
 }
 @font-face {
   font-family: 'Outfit';
-  src: url('/assets/fonts/Outfit-Regular.ttf');
+  src: url('src/assets/fonts/Outfit-Regular.ttf');
 }
 @font-face {
   font-family: 'OutfitBold';
-  src: url('/assets/fonts/Outfit-SemiBold.ttf');
+  src: url('src/assets/fonts/Outfit-SemiBold.ttf');
 }
 @font-face {
   font-family: 'CornerStone';
-  src: url('/assets/fonts/Cornerstone.ttf');
+  src: url('src/assets/fonts/Cornerstone.ttf');
 }
 
 @theme {
