@@ -1,12 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createClient } from "@supabase/supabase-js";
-import { getUser, signup } from "./authThunk";
+import { getUser, signup, signin, signout } from "./authThunk";
 
 export const authSlice = createSlice({
   name: "auth",
-  initialState: { user: null, loading: false, error: null },
+  initialState: { user: null, loading: true, error: null },
   reducers: {
     setUser: (state, action) => {
+      state.user = action.payload;
+      state.loading = false;
+      state.error = null;
+    },
+    addUser: (state, action) => {
+      state.user = action.payload;
+      state.loading = false;
+      state.error = null;
+    },
+    createUser: (state, action) => {
       state.user = action.payload;
       state.loading = false;
       state.error = null;
@@ -22,7 +31,6 @@ export const authSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-
       .addCase(signup.pending, (state, action) => {
         state.loading = true
         state.error = null
@@ -78,5 +86,5 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setUser, deleteUser, setError } = authSlice.actions;
+export const { createUser, setUser, deleteUser, setError } = authSlice.actions;
 export default authSlice.reducer;

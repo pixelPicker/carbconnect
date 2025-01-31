@@ -1,11 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { clientSupabase } from "../../client";
 import { deleteUser, setError, setUser } from "./authSlice";
-import { use } from "react";
-import { supabase } from "@supabase/auth-ui-shared";
 
 export const signup = createAsyncThunk(
-  "auth/setUser",
+  "auth/createUser",
   async ({ email, password, username }, { rejectWithValue }) => {
     try {
       const { data, error } = await clientSupabase.auth.signUp({
@@ -29,7 +27,7 @@ export const signup = createAsyncThunk(
 );
 
 export const signin = createAsyncThunk(
-  "auth/setUser",
+  "auth/addUser",
   async ({ email, password }, { rejectWithValue }) => {
     try {
       const { data, error } = await clientSupabase.auth.signInWithPassword({

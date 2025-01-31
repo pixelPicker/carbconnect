@@ -3,8 +3,11 @@ import ProtectedRoutes from "./ProtectedRoutes";
 import App from "../App";
 import Home from "../pages/Home"
 import Page404 from "../pages/Page404"
+import Signup from "../pages/Signup";
+import Signin from "../pages/Signin";
+import Calculator from "../pages/Calculator";
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
@@ -13,7 +16,7 @@ export const router = createBrowserRouter([
       {
         element: <ProtectedRoutes />,
         children: [
-          // { path: 'calculator', element: <Calculator /> },
+          { path: 'calculator', element: <Calculator /> },
           // {path: 'challenges', element: <Challanges />},
           // {path: 'blog', element: <Blog />},
           // {path: 'actions', element: <Actions />},
@@ -23,16 +26,18 @@ export const router = createBrowserRouter([
       }
     ]
   },
-  // {
-  //   path: 'signup',
-  //   element: <Signup />
-  // },
-  // {
-  //   path: 'signin',
-  //   element: <Signin />
-  // },
+  {
+    path: 'signup',
+    element: <Signup />
+  },
+  {
+    path: 'signin',
+    element: <Signin />
+  },
   {
     path: '*',
     element: <Page404 />
   },
 ])
+
+export default router;
