@@ -10,10 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.2",
+    "@mui/material": "^6.4.2",
     "@reduxjs/toolkit": "^2.5.1",
-    "@supabase/auth-ui-react": "^0.4.7",
-    "@supabase/auth-ui-shared": "^0.1.8",
-    "@supabase/supabase-js": "^2.48.1",
     "@tailwindcss/vite": "^4.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -22,7 +23,8 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.29.0",
     "redux": "^5.0.1",
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.0.0",
+    "victory": "^37.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

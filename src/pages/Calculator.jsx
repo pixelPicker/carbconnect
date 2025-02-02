@@ -1,7 +1,12 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 function Calculator() {
-  return <div>Calculator</div>;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 }
 
 export default Calculator;

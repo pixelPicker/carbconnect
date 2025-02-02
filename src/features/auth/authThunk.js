@@ -63,7 +63,7 @@ export const signin = createAsyncThunk(
       };
       const objectStore = transaction.objectStore("user");
 
-      const getUser = objectStore.get(userKey);
+      const getUser = objectStore.getAll();
       const userCredentials = await new Promise((resolve, reject) => {
         getUser.onerror = (event) => {
           throw new Error(event.target.error?.message);

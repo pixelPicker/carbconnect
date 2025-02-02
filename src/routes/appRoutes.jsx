@@ -6,6 +6,8 @@ import Page404 from "../pages/Page404"
 import Signup from "../pages/Signup";
 import Signin from "../pages/Signin";
 import Calculator from "../pages/Calculator";
+import CreateLog from "../pages/createLog";
+import LogDashboard from "../pages/LogDashboard";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,14 @@ const router = createBrowserRouter([
       {
         element: <ProtectedRoutes />,
         children: [
-          { path: 'calculator', element: <Calculator /> },
+          {
+            path: 'calculator',
+            element: <Calculator />,
+            children: [
+              { index: true, element: <LogDashboard /> },
+              { path: 'add-log', element: <CreateLog /> }
+            ]
+          },
           // {path: 'challenges', element: <Challanges />},
           // {path: 'blog', element: <Blog />},
           // {path: 'actions', element: <Actions />},

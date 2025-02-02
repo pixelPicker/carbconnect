@@ -7,42 +7,32 @@
 }
 
 @font-face {
-  font-family: 'Smooch';
-  src: url('src/assets/fonts/SmoochSans-Medium.ttf');
+  font-family: "Outfit";
+  src: url(./assets/fonts/Outfit-Regular.ttf);
 }
 @font-face {
-  font-family: 'Karla';
-  src: url('src/assets/fonts/Karla-Regular.ttf');
+  font-family: "OutfitBold";
+  src: url(./assets/fonts/Outfit-SemiBold.ttf);
 }
 @font-face {
-  font-family: 'Outfit';
-  src: url('src/assets/fonts/Outfit-Regular.ttf');
+  font-family: "RubikDoodleShadow";
+  src: url(./assets/fonts/RubikDoodleShadow-Regular.ttf);
 }
 @font-face {
-  font-family: 'OutfitBold';
-  src: url('src/assets/fonts/Outfit-SemiBold.ttf');
-}
-@font-face {
-  font-family: 'CornerStone';
-  src: url('src/assets/fonts/Cornerstone.ttf');
+  font-family: "Bricolage";
+  src: url(./assets/fonts/BricolageGrotesque-Medium.ttf);
 }
 
 @theme {
-  --font-Smooch: 'Smooch';
-  --font-Karla: 'Karla';
-  --font-Outfit: 'Outfit';
-  --font-OutfitBold: 'OutfitBold';
-  --font-CornerStone: 'CornerStone';
+  --font-RubikDoodleShadow: "RubikDoodleShadow";
+  --font-Bricolage: "Bricolage";
+  --font-Outfit: "Outfit";
+  --font-OutfitBold: "OutfitBold";
 }
 
 @layer utilities {
-  .bg-striped {
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      hsla(218, 9%, 76%, 0.1) 1px, /* gray-500 with 20% opacity */
-      hsla(220, 9%, 76%, 0.1) 21px
-    );
+  .bg-leaves {
+    background-image: url(../src/assets/images/leaves_bg.jpg);
+    background-size: cover;
   }
 }
