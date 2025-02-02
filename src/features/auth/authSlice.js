@@ -3,7 +3,7 @@ import { getUser, signup, signin, signout } from "./authThunk";
 
 export const authSlice = createSlice({
   name: "auth",
-  initialState: { user: null, loading: true, error: null },
+  initialState: { user: null, loading: false, error: null },
   reducers: {
     setUser: (state, action) => {
       state.user = action.payload;
@@ -37,7 +37,10 @@ export const authSlice = createSlice({
       })
       .addCase(signup.fulfilled, (state, action) => {
         state.loading = false
+        console.log(action);
         state.user = action.payload
+        console.log("User successfully added");
+        
       })
       .addCase(signup.rejected, (state, action) => {
         state.loading = false
@@ -51,6 +54,8 @@ export const authSlice = createSlice({
       .addCase(signin.fulfilled, (state, action) => {
         state.loading = false
         state.user = action.payload
+        console.log("User successfully logged in");
+        
       })
       .addCase(signin.rejected, (state, action) => {
         state.loading = false
@@ -66,19 +71,6 @@ export const authSlice = createSlice({
         state.user = null
       })
       .addCase(signout.rejected, (state, action) => {
-        state.loading = false
-        state.error = action.error.message
-      })
-      
-      .addCase(getUser.pending, (state, action) => {
-        state.loading = true
-        state.error = null
-      })
-      .addCase(getUser.fulfilled, (state, action) => {
-        state.loading = false
-        state.user = action.payload
-      })
-      .addCase(getUser.rejected, (state, action) => {
         state.loading = false
         state.error = action.error.message
       })

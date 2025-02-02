@@ -41,7 +41,7 @@
       45deg,
       transparent,
       transparent 20px,
-      hsla(220, 9%, 76%, 0.1) 1px, /* gray-500 with 20% opacity */
+      hsla(218, 9%, 76%, 0.1) 1px, /* gray-500 with 20% opacity */
       hsla(220, 9%, 76%, 0.1) 21px
     );
   }
