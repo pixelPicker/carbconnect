@@ -5,11 +5,10 @@ import { Link } from "react-router-dom";
 import LogTable from "../components/MUITable";
 import { VictoryChart, VictoryBar, VictoryAxis, VictoryTooltip, VictoryTheme } from 'victory';
 import { useDispatch, useSelector } from "react-redux";
-import { getAllLogs } from "../features/logging/logThunk";
+import { deleteAllLogs, getAllLogs } from "../features/logging/logThunk";
 import { useEffect } from "react";
-import deleteAllLogs from "../dbService/dbTransactions";
-
-
+import { FaTimes, FaPlus } from "react-icons/fa";
+import { deleteLogs } from "../features/logging/logSlice";
 function LogDashboard() {
   const dispatch = useDispatch();
   const { logs, loading, error } = useSelector((state) => state.log)
@@ -18,11 +17,16 @@ function LogDashboard() {
     dispatch(getAllLogs())
   }, [dispatch]);
 
+  const clearSearch = () => {
+    deleteAllLogs()
+    dispatch(deleteLogs())
+  }
+
   if (logs.length === 0) {
     return (
       <section className="flex text-xl font-Outfit flex-col gap-4 justify-center items-center min-h-screen">
-          <div>No logs exist currently</div>
-          <Link className="!py-3 !px-6 transition-all  bg-green-950 text-white hover:bg-green-900 active:bg-green-800 rounded-full" to={'add-log'}>Create a new log</Link>
+        <div>No logs exist currently</div>
+        <Link className="!py-3 !px-6 transition-all  bg-green-950 text-white hover:bg-green-900 active:bg-green-800 rounded-full" to={'add-log'}>Create a new log</Link>
       </section>
     )
   }
@@ -33,8 +37,9 @@ function LogDashboard() {
           <h1>Footprint Report</h1>
           <RiFootprintFill />
         </div>
-        <div>
-          <Link to={'add-log'} className="font-Outfit ">+ Add</Link>
+        <div className="flex gap-4">
+          <Link to={'add-log'} className="font-Outfit "><div className="flex gap-1 items-center"><FaPlus /> Add </div></Link>
+          <button onClick={() => clearSearch()} className="font-Outfit text-base"><div className="flex gap-1 items-center"><FaTimes /> Clear </div></button>
         </div>
       </div>
       <div className="grid grid-cols-5 !pt-4 gap-2">
@@ -54,7 +59,7 @@ function LogDashboard() {
   );
 }
 
-const Metrics = ({logs}) => {
+const Metrics = ({ logs }) => {
   const totalEmissions = (logs.reduce((acc, log) => acc + log.emission, 0)).toFixed(2);
   const todaysEmissions = (logs.filter(log => log.date === "2025-02-03").reduce((acc, log) => acc + log.emission, 0)).toFixed(2);
   const averageEmissions = (totalEmissions / logs.length).toFixed(2);
@@ -84,7 +89,7 @@ const Metrics = ({logs}) => {
   );
 };
 
-const EmissionChart = ({logs}) => {
+const EmissionChart = ({ logs }) => {
   // const logs = [
   //   { category: "Transport", emission: 4.5 },
   //   { category: "Food", emission: 1.2 },

@@ -1,11 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllLogs, addLog } from "./logThunk";
+import { getAllLogs, addLog, deleteAllLogs } from "./logThunk";
 
 export const logSlice = createSlice({
   name: 'log',
   initialState: {logs: [], loading: false, error: null},
   reducers: {
-    
+    deleteLogs: (state, action) => {
+      state.loading = false
+      state.logs = []
+      state.error = null
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -37,4 +41,5 @@ export const logSlice = createSlice({
   }
 })
 
+export const {deleteLogs} = logSlice.actions;
 export default logSlice.reducer;

@@ -56,5 +56,5 @@ export const deleteAllLogs = async () => {
     const transaction = db.transaction("logEvent", "readwrite");
     const objectStore = transaction.objectStore("logEvent");
 
-    const request = objectStore.clear();
+    objectStore.clear();
 }
