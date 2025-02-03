@@ -34,9 +34,9 @@ function Signin() {
     dispatch(signin({ email, password }))
   }
   return (
-    <section className="flex overflow-y-hidden bg-orange-100 min-h-screen">
-      <img src="src/assets/images/illco2.jpg" alt="" className="w-5/9 aspect-[16/9] object-cover rounded-r-3xl shadow-[3px_0px_10px_0px_rgba(51,51,51,.5)]" />
-      <div className="flex flex-1 gap-3 justify-center items-center flex-col !p-32">
+    <section className="flex flex-col-reverse lg:flex-row overflow-y-hidden bg-orange-100 min-h-screen">
+      <img src="src/assets/images/illco2.jpg" alt="" className="lg:w-5/9 lg:aspect-[16/9] object-cover rounded-t-3xl lg:rounded-r-3xl shadow-[3px_0px_10px_0px_rgba(51,51,51,.5)]" />
+      <div className="flex flex-1 gap-3 justify-center items-center flex-col !p-8 sm:!p-16 md:!p-32">
         <h1 className="text-4xl font-Karla self-start">SIGN IN</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} method="POST" className="w-full ">
@@ -75,8 +75,8 @@ function Signin() {
         </form>
 
         <div className="flex flex-col items-end self-end font-Outfit">
-          <Link to={"/signup"} className="hover:text-gray-950 active:text-gray-800">Don't have an Account? Create one</Link><br />
-          <Link to={"https://goo.gl/eEeXsY"} className="hover:text-gray-950 active:text-gray-800">Read our terms and conditions</Link>
+          <Link to={"/signup"} className="text-right hover:text-gray-950 active:text-gray-800">Don't have an Account? Create one</Link><br />
+          <Link to={"https://goo.gl/eEeXsY"} className="text-right hover:text-gray-950 active:text-gray-800">Read our terms and conditions</Link>
         </div>
       </div>
     </section>
