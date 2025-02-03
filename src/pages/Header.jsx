@@ -8,26 +8,26 @@ function Header() {
 
   console.log(user);
   return (
-    <header className="flex items-center  absolute top-2 font-Outfit left-1/2 -translate-x-1/2  justify-between w-full !px-4 !py-2">
+    <header className="flex z-50 items-center bg-cyan-950/50 shadow-lg backdrop-blur-[2px] fixed top-0 font-Outfit left-1/2 -translate-x-1/2  justify-between w-full !px-4 !py-2">
       <div className="flex items-center !pt-1 font-RubikDoodleShadow text-3xl font-extrabold">
         <h1 className="text-[30px]">Carb</h1>
         <TfiLink className="text-[30px]" />
         <h1 className="text-[30px] text-cyan-950">Connect</h1>
       </div>
       <nav>
-        <ul className="flex items-center gap-16 !py-2 !px-4">
-          <NavLink className={({ isActive }) => isActive ? "text-black" : "text-gray-700 hover:text-gray-800"} to={'/'}>Home</NavLink>
-          <NavLink className={({ isActive }) => isActive ? "text-black" : "text-gray-700 hover:text-gray-800"} to={'calculator'}>Calculator</NavLink>
-          <NavLink className={({ isActive }) => isActive ? "text-black" : "text-gray-700 hover:text-gray-800"} to={'blog'}>Blog</NavLink>
-          <NavLink className={({ isActive }) => isActive ? "text-black" : "text-gray-700 hover:text-gray-800"} to={'shop'}>Shop</NavLink>
-          <NavLink className={({ isActive }) => isActive ? "text-black" : "text-gray-700 hover:text-gray-800"} to={'forum'}>Forum</NavLink>
+        <ul className="flex text-lg items-center gap-16 !py-2 !px-4">
+          <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'/'}>Home</NavLink>
+          <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'calculator'}>Calculator</NavLink>
+          <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'blog'}>Blog</NavLink>
+          <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'shop'}>Shop</NavLink>
+          <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'forum'}>Forum</NavLink>
         </ul>
       </nav>
       {
         (user)
           ?
           <Link to='/profile'>
-            <section className="flex gap-2 !px-2 !py-1 rounded-sm items-center bg-green-950 text-white">
+            <section className="flex gap-2 !px-2 !py-1 shadow-lg hover:bg-gray-300 rounded-sm items-center bg-gray-200 text-black">
               <FaUser />
               {user.userName}
             </section>

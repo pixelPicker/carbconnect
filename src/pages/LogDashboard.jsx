@@ -60,7 +60,7 @@ function LogDashboard() {
 }
 
 const Metrics = ({ logs }) => {
-  const totalEmissions = (logs.reduce((acc, log) => acc + log.emission, 0)).toFixed(2);
+  const totalEmissions = Number.parseFloat(logs.reduce((acc, log) => acc + log.emission, 0)).toFixed(2);
   const todaysEmissions = (logs.filter(log => log.date === "2025-02-03").reduce((acc, log) => acc + log.emission, 0)).toFixed(2);
   const averageEmissions = (totalEmissions / logs.length).toFixed(2);
   const totalLogs = logs.length;
