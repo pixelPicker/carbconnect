@@ -12,10 +12,10 @@ function App() {
       console.log(persistent ? "Persistent storage granted" : "Not persistent");
     });
 
-    console.log("Fetching the user");
     const checkUser = async () => {
       const user = await getUser()
-      if(user) {
+      console.log("user: ", user);
+      if (user) {
         dispatch(setUser(user))
       }
     }

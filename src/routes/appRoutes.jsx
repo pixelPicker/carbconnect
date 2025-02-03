@@ -6,8 +6,9 @@ import Page404 from "../pages/Page404"
 import Signup from "../pages/Signup";
 import Signin from "../pages/Signin";
 import Calculator from "../pages/Calculator";
-import CreateLog from "../pages/createLog";
+import CreateLog from "../pages/CreateLog";
 import LogDashboard from "../pages/LogDashboard";
+import Profile from "../pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         ]
       }
     ]
+  },
+  {
+    path: 'profile', 
+    element: <Profile />
   },
   {
     path: 'signup',

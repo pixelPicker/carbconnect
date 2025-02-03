@@ -23,7 +23,7 @@ export const signup = createAsyncThunk(
           throw new Error(event.target.error?.message);
         };
         checkExistingUser.onsuccess = (event) => {
-          if (event.target.result !== undefined) {
+          if (event.target.result.length !== 0) {
             resolve(true);
           }
           resolve(false);
@@ -137,12 +137,27 @@ export const signout = createAsyncThunk(
   }
 );
 
-// export const checkAuthChanges = () => async (dispatch) => {
-//   clientSupabase.auth.onAuthStateChange((event, session) => {
-//     if (event === "INITIAL_SESSION" || event === "SIGNED_IN") {
-//       dispatch(setUser(session?.user));
-//     } else if (event === "SIGNED_OUT") {
-//       dispatch(deleteUser());
-//     }
-//   });
-// };
+export const deleteAllUsers = async () => {
+  try {
+    const db = await getDB(); // Assuming getDB() returns the IndexedDB connection
+    const transaction = db.transaction("user", "readwrite");
+    const objectStore = transaction.objectStore("user");
+
+    const request = objectStore.clear();
+
+    return new Promise((resolve, reject) => {
+      request.onsuccess = () => {
+        console.log("All users have been deleted");
+        resolve();
+      };
+
+      request.onerror = (event) => {
+        console.error("Error deleting users:", event.target.error?.message);
+        reject(event.target.error?.message);
+      };
+    });
+  } catch (error) {
+    console.error("Error in deleteAllUsers:", error.message);
+    throw new Error(error.message);
+  }
+};

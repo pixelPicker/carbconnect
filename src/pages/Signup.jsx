@@ -4,7 +4,7 @@ import WideButton from "../components/WideButton";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { signup } from "../features/auth/authThunk";
+import { getUser, signup } from "../features/auth/authThunk";
 
 function Signup() {
   const [email, setEmail] = useState(null);
@@ -20,7 +20,6 @@ function Signup() {
     if(user) {
       navigate('/');
     };
-
   }, [user, navigate]);
   
 
@@ -58,7 +57,7 @@ function Signup() {
             {...register('userName', { required: true, maxLength: 11 })}
             className="!mt-3 w-full border-2 border-black !py-3 !px-6 bg-transparent rounded-sm outline-none placeholder:text-gray-600 placeholder:font-Outfit font-Outfit"
           />
-          {errors.userName && <p className="font-Outfit text-red-600">Greater than 10 characters or empty.</p>}
+          {errors.userName && <p className="font-Outfit text-red-600">Should be less than 10 characters.</p>}
 
           <input
             type='email'

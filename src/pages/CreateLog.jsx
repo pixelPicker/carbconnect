@@ -5,6 +5,10 @@ import WideButton from "../components/WideButton";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addLog } from "../features/logging/logThunk";
+import { IoIosArrowDropleftCircle } from "react-icons/io";
+import { Link } from "react-router-dom";
+
 
 function CreateLog() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -12,13 +16,16 @@ function CreateLog() {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const emission = Number.parseFloat((categories[data.category] * data.performedTime).toFixed(2));
+    const log = {...data, emission: emission, performedTime: Number.parseFloat(data.performedTime)}
+    dispatch(addLog(log))
+    navigate('/calculator')
   }
 
   return (
     <section className="!mt-32 flex justify-center items-center">
-
       <div className="!px-4 flex flex-col items-stretch justify-center gap-2 !py-4 border-[1px] border-gray-400 rounded-2xl shadow-ls">
+        <Link to={'/calculator/'}><IoIosArrowDropleftCircle className="text-2xl text-cyan-950" /></Link>
         <h1 className="font-Bricolage text-center text-2xl text-cyan-950">New Log</h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -49,11 +56,13 @@ function CreateLog() {
           </div>
 
           <div className="w-full font-Outfit !p-1">
-            <p className="!pb-1">Time performed</p>
+            <p className="!pb-1">Time performed(in hours)</p>
             <input
               type="number"
               name="performed-time"
               id="performed-time"
+              max={10}
+              min={1}
               className="outline-none border-none w-full !p-1 bg-gray-200 text-black font-Outfit rounded-sm"
               {...register('performedTime', { required: true })}    
             />
@@ -72,7 +81,6 @@ function CreateLog() {
                 width: "100%",
                 fontFamily: 'Outfit',
                 bgcolor: '#e5e7eb',
-                fontFamily: "Outfit",
                 color: "black",
                 transition: 'all',
                 borderRadius: "4px", // rounded-sm

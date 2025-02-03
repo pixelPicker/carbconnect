@@ -16,7 +16,6 @@ import { useSelector } from "react-redux";
 function ProtectedRoutes() {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  console.log(user);
 
   useEffect(() => {
     if (!user) {

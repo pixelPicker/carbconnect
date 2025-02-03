@@ -1,6 +1,5 @@
-import { createAsyncThunk, isRejectedWithValue } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import getDB from "../../dbService/db";
-import { create } from "@mui/material/styles/createTransitions";
 
 export const addLog = createAsyncThunk(
   "log/addLog",
@@ -12,46 +11,50 @@ export const addLog = createAsyncThunk(
         .objectStore("logEvent")
         .add(log);
 
-      request.onsuccess = (event) => {
-        console.log(event);
-        console.log(`New log created, id: ${request.result}`);
-      };
+      return await new Promise((resolve, reject) => {
+        request.onsuccess = () => {
+          resolve({ ...log, logId: request.result });
+        };
 
-      request.onerror = (error) => {
-        console.log(error);
-        throw new Error(`Error creating new log: ${error.target.error}`);
-      };
+        request.onerror = () => {
+          reject(new Error(`Error creating new log: ${request.error.message}`));
+        };
+      });
     } catch (error) {
       rejectWithValue(error.message);
     }
   }
 );
+
 export const getAllLogs = createAsyncThunk(
   "log/getAllLogs",
   async (_, { rejectWithValue }) => {
     try {
       const db = await getDB();
-      const request = db.transaction("logEvent", "readonly")
-      .objectStore("logEvent")
-      .getAll()
-      request.onsuccess = (event) => {
-        console.log(event);
-        console.log(`New log created, id: ${request.result}`);
-      };
-      
-      request.onerror = (error) => {
-        console.log(error);
-        throw new Error(`Error creating new log: ${error.target.error}`);
-      };
+      const request = db
+        .transaction("logEvent", "readonly")
+        .objectStore("logEvent")
+        .getAll();
 
-    } catch (error) {}
+      return await new Promise((resolve, reject) => {
+        request.onsuccess = () => {
+          resolve(request.result); // Returns all logs
+        };
+
+        request.onerror = () => {
+          reject(rejectWithValue(`Error fetching logs: ${request.error.message}`));
+        };
+      });
+    } catch (error) {
+      rejectWithValue(error.message);
+    }
   }
 );
-// export const addLog = createAsyncThunk(
-//   "log/addLog",
-//   async({description, category, subcategory, date, performedTime}, {rejectWithValue}) => {
-//     const emission = categories[category][subcategory] * performedTime;
-//     const db = await getDB();
-//     db.
-//   }
-// )
+
+export const deleteAllLogs = async () => {
+  const db = await getDB(); 
+    const transaction = db.transaction("logEvent", "readwrite");
+    const objectStore = transaction.objectStore("logEvent");
+
+    const request = objectStore.clear();
+}
