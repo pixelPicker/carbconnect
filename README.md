@@ -1,8 +1,16 @@
-# React + Vite
+# 🌱 CarbConnect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CarbConnect is a web platform designed to help users track their carbon footprint through an interactive carbon calculator, engaging challenges, a blog, and a sustainable shopping section. Built using React and IndexedDB for storage, the platform offers a seamless and user-friendly experience for environmental awareness.
 
-Currently, two official plugins are available:
+# 🛠 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### - Frontend: React.js
+#### - State Management: Redux
+#### - Storage: IndexedDB (for local storage and offline support)
+#### - Styling: Tailwind CSS
+#### - Icons: React Icons
+
+# 🎨 Design Resources
+
+#### - Icons & Illustrations: Freepik
+#### - Fonts: Google Fonts
