@@ -37,19 +37,19 @@ function LogDashboard() {
           <h1>Footprint Report</h1>
           <RiFootprintFill />
         </div>
-        <div className="flex gap-4">
+        <div className="sm:flex gap-4">
           <Link to={'add-log'} className="font-Outfit "><div className="flex gap-1 items-center"><FaPlus /> Add </div></Link>
           <button onClick={() => clearSearch()} className="font-Outfit text-base"><div className="flex gap-1 items-center"><FaTimes /> Clear </div></button>
         </div>
       </div>
-      <div className="grid grid-cols-5 !pt-4 gap-2">
-        <div className="col-span-3">
+      <div className="grid grid-cols-1 lg:grid-cols-5 !pt-4 gap-2">
+        <div className="lg:col-span-3">
           <div className="flex flex-col items-stretch gap-2">
             <Metrics logs={logs} />
             <LogTable logs={logs} />
           </div>
         </div>
-        <div className="col-span-2">
+        <div className="lg:col-span-2">
           <div className="flex flex-col h-full items-stretch gap-2">
             <EmissionChart logs={logs} />
           </div>
@@ -67,7 +67,7 @@ const Metrics = ({ logs }) => {
 
   return (
     <>
-      <div className="grid grid-cols-4 gap-4 !py-4 rounded-2xl ">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 !py-4 rounded-2xl ">
         <div className="bg-cyan-950 rounded-xl">
           <p className="!p-4 text-white font-Outfit">Complete emissions</p>
           <h1 className="!p-4 text-white font-Bricolage text-4xl ">{totalEmissions} <span className="text-base">CO2e</span></h1>
@@ -90,13 +90,6 @@ const Metrics = ({ logs }) => {
 };
 
 const EmissionChart = ({ logs }) => {
-  // const logs = [
-  //   { category: "Transport", emission: 4.5 },
-  //   { category: "Food", emission: 1.2 },
-  //   { category: "Energy", emission: 2.3 },
-  //   { category: "Transport", emission: 1.5 },
-  //   { category: "Food", emission: 0.5 },
-  // ];
   const categoryData = logs.reduce((acc, log) => {
     acc[log.category] = (acc[log.category] || 0) + log.emission;
     return acc;
@@ -111,7 +104,7 @@ const EmissionChart = ({ logs }) => {
     <VictoryChart
       theme={VictoryTheme.material}
       domainPadding={20}
-      style={{ parent: { width: '100%', aspectRatio: 2 / 1, fontFamily: 'Outfit' } }}
+      style={{ parent: { width: '100%', aspectRatio: 1 / 1, fontFamily: 'Outfit' } }}
     >
       <VictoryAxis
         style={{

@@ -24,7 +24,7 @@ function CreateLog() {
 
   return (
     <section className="!mt-32 flex justify-center items-center">
-      <div className="!px-4 flex flex-col items-stretch justify-center gap-2 !py-4 border-[1px] border-gray-400 rounded-2xl shadow-ls">
+      <div className="!px-4 w-[350px] sm:w-[550px] flex flex-col items-stretch justify-center gap-2 !py-4 border-[1px] border-gray-400 rounded-2xl shadow-ls">
         <Link to={'/calculator/'}><IoIosArrowDropleftCircle className="text-2xl text-cyan-950" /></Link>
         <h1 className="font-Bricolage text-center text-2xl text-cyan-950">New Log</h1>
 
