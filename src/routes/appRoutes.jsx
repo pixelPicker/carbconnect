@@ -9,6 +9,7 @@ import Calculator from "../pages/Calculator";
 import CreateLog from "../pages/CreateLog";
 import LogDashboard from "../pages/LogDashboard";
 import Profile from "../pages/Profile";
+import Blog from "../pages/Blog";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             ]
           },
           // {path: 'challenges', element: <Challanges />},
-          // {path: 'blog', element: <Blog />},
+          {path: 'blog', element: <Blog />},
           // {path: 'actions', element: <Actions />},
           // {path: 'shop', element: <Shop />},
           // {path: 'forum', element: <Forum />},
