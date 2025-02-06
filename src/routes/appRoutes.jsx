@@ -11,6 +11,7 @@ import LogDashboard from "../pages/LogDashboard";
 import Profile from "../pages/Profile";
 import AboutUs from "../pages/aboutus";
 import ActionChallenges from "../pages/ActionChallenges";
+import LocalClimateAction from "../pages/LocalClimateAction";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
           {path: 'about' , element: < AboutUs/>},
          {path: 'challenges', element: <ActionChallenges />},
           // {path: 'blog', element: <Blog />},
-          // {path: 'actions', element: <Actions />},
+          {path: 'actions', element: <LocalClimateAction />},
           // {path: 'shop', element: <Shop />},
           // {path: 'forum', element: <Forum />},
         ]
