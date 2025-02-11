@@ -32,6 +32,8 @@ function Header() {
           <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'blog'}>Blog</NavLink>
           <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'shop'}>Shop</NavLink>
           <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'forum'}>Forum</NavLink>
+          <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'about'}>About</NavLink>
+
         </ul>
       </nav>
       <IoMenu className="!mr-4 sm:!mr-0 sm:hidden text-xl" onClick={openSideBar} />
@@ -94,6 +96,12 @@ function Header() {
         <NavLink to={'/forum'} className={({ isActive }) => isActive ? "bg-gray-300 !mb-4 text-black" : "bg-transparent !mb-4 text-white"}>
           <div className="flex justify-between text-xl items-center !px-4 !py-2">
             <h3>Forum</h3>
+            <HiMiniArrowTopRightOnSquare />
+          </div>
+        </NavLink>
+        <NavLink to={'/about'} className={({ isActive }) => isActive ? "bg-gray-300 !mb-4 text-black" : "bg-transparent !mb-4 text-white"}>
+          <div className="flex justify-between text-xl items-center !px-4 !py-2">
+            <h3>About</h3>
             <HiMiniArrowTopRightOnSquare />
           </div>
         </NavLink>

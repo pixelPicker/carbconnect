@@ -4,6 +4,8 @@ import { FaGlobeAsia } from "react-icons/fa";
 import { IoIosWater } from "react-icons/io";
 import { LuTrees } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import ActionChallenges from "./ActionChallenges";
+import LocalClimateAction from "./LocalClimateAction";
 
 function Home() {
   return (
@@ -25,8 +27,8 @@ const Hero = () => {
         <h1 className="text-center text-green-950 text-3xl sm:text-5xl !mb-2 !mt-10 font-Bricolage sm:leading-15">Begin your Green Journey Today</h1>
         <p className="text-center text-green-800 !mb-8">Take the first step towards a sustainable future – explore tools, tackle challenges,<br />and connect with a like-minded community!</p>
         <div className="flex gap-4">
-          <Link className="flex items-center cursor-pointer gap-2 !py-2 !px-3 text-white transition-all duration-300 hover:bg-green-800 shadow-xl active:bg-green-700 bg-green-950 rounded-lg">Challenge Yourself <BsArrowUpRightCircleFill /></Link>
-          <Link className="flex items-center cursor-pointer gap-2 !py-2 !px-3 text-green-800 transition-all border-[2px] border-green-800/50 hover:bg-gray-400/50 active:bg-gray-400/60 bg-gray-400/40 rounded-lg">Join Our Program <BsArrowUpRightCircleFill /></Link>
+          <Link to ={'challenges'} className="flex items-center cursor-pointer gap-2 !py-2 !px-3 text-white transition-all duration-300 hover:bg-green-800 shadow-xl active:bg-green-700 bg-green-950 rounded-lg">Challenge Yourself <BsArrowUpRightCircleFill /></Link>
+          <Link to={'actions'} className="flex items-center cursor-pointer gap-2 !py-2 !px-3 text-green-800 transition-all border-[2px] border-green-800/50 hover:bg-gray-400/50 active:bg-gray-400/60 bg-gray-400/40 rounded-lg">Join Our Program <BsArrowUpRightCircleFill /></Link>
         </div>
       </section>
     </>
@@ -133,12 +135,42 @@ const Services = () => {
           </div>
           <img src="src/assets/images/cbf_ss.png" className="brightness-90 rounded-lg" />
         </div>
-        <div className="border-[1px] border-gray-400 !p-1 lg:!p-4 rounded-lg lg:col-start-3">2</div>
-        <div className="border-[1px] border-gray-400 !p-1 lg:!p-4 rounded-lg lg:col-start-3 lg:row-start-2">3</div>
-        <div className="border-[1px] border-gray-400 !p-1 lg:!p-4 rounded-lg lg:col-start-3 lg:row-start-3">4</div>
-        <div className="border-[1px] border-gray-400 !p-1 lg:!p-4 rounded-lg lg:col-start-2 lg:row-start-3">5</div>
-        <div className="border-[1px] border-gray-400 !p-1 lg:!p-4 rounded-lg lg:col-start-1 lg:row-start-3">6</div>
-      </div>
+        
+        <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-3 overflow-hidden">
+           <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+              Sustainable Goals
+        </div>
+          <img src="src/assets/images/image2.png" className="brightness-90 rounded-lg w-full h-full object-cover" />
+         </div>
+        
+         <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-3 lg:row-start-2 overflow-hidden">
+            <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+                Eco Challenges
+        </div>
+          <img src="src/assets/images/image3.jpeg" className="brightness-90 rounded-lg w-full h-full object-cover" />
+        </div>
+
+          <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-3 lg:row-start-3 overflow-hidden">
+            <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+               Carbon Footprint
+        </div>
+          <img src="src/assets/images/image3.jpeg" className="brightness-90 rounded-lg w-full h-full object-cover" />
+        </div>     
+
+          <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-2 lg:row-start-3 overflow-hidden">
+             <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+               Community Impact
+        </div>
+          <img src="src/assets/images/image3.jpeg" className="brightness-90 rounded-lg w-full h-full object-cover" />
+        </div>
+
+           <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-1 lg:row-start-3 overflow-hidden">
+              <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+               Green Initiatives
+        </div>
+          <img src="src/assets/images/image3.jpeg" className="brightness-90 rounded-lg w-full h-full object-cover" />
+        </div>
+</div>      
     </section>
   )
 }

@@ -10,6 +10,11 @@ import CreateLog from "../pages/CreateLog";
 import LogDashboard from "../pages/LogDashboard";
 import Profile from "../pages/Profile";
 import Blog from "../pages/Blog";
+import AboutUs from "../pages/aboutus";
+import ActionChallenges from "../pages/ActionChallenges";
+import LocalClimateAction from "../pages/LocalClimateAction";
+import CommunityForum from "../pages/CommunityForum";
+
 
 const router = createBrowserRouter([
   {
@@ -28,11 +33,12 @@ const router = createBrowserRouter([
               { path: 'add-log', element: <CreateLog /> }
             ]
           },
-          // {path: 'challenges', element: <Challanges />},
           {path: 'blog', element: <Blog />},
-          // {path: 'actions', element: <Actions />},
+          {path: 'about' , element: < AboutUs/>},
+         {path: 'challenges', element: <ActionChallenges />},
+          {path: 'actions', element: <LocalClimateAction />},
           // {path: 'shop', element: <Shop />},
-          // {path: 'forum', element: <Forum />},
+          {path: 'forum', element: <CommunityForum />},
         ]
       }
     ]
