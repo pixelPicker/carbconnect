@@ -14,7 +14,7 @@ import AboutUs from "../pages/aboutus";
 import ActionChallenges from "../pages/ActionChallenges";
 import LocalClimateAction from "../pages/LocalClimateAction";
 import CommunityForum from "../pages/CommunityForum";
-
+import Shop from "../pages/Shop";
 
 const router = createBrowserRouter([
   {
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
           {path: 'about' , element: < AboutUs/>},
          {path: 'challenges', element: <ActionChallenges />},
           {path: 'actions', element: <LocalClimateAction />},
-          // {path: 'shop', element: <Shop />},
+          {path: 'shop', element: <Shop />},
           {path: 'forum', element: <CommunityForum />},
         ]
       }

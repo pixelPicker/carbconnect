@@ -18,6 +18,10 @@ const NewPostForm = ({ addPost }) => {
   };
 
   return (
+
+    <div className="new-post-form !mt-4">
+      <h2>Create a new post</h2>
+
     <div className="new-post-form">
       <h2 className="text-xl">Create a new post</h2>
       <form onSubmit={handleSubmit}>
@@ -36,6 +40,7 @@ const NewPostForm = ({ addPost }) => {
         />
         <button type="submit">Post</button>
       </form>
+    </div>
     </div>
   );
 };

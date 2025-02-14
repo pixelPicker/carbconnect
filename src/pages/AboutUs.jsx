@@ -1,7 +1,10 @@
 import React from "react";
 import neelImage from "../assets/images/neel.jpeg";
-import car from "../assets/images/1.jpeg";
+import car from "../assets/images/carlton.jpeg";
 import anisha from "../assets/images/anisha.png"
+import Rahul from "../assets/images/Rahul.jpeg"
+import Yash from "../assets/images/yash nigga.jpeg"
+import Om from "../assets/images/om.png"
 const AboutUs = () => {
   
   const teamMembers = [
@@ -10,7 +13,7 @@ const AboutUs = () => {
       name: "Rahul",
       role: "Team Leader",
       bio: "Oversaw the entire project, coordinated team efforts, and ensured timely completion.",
-      image: "/public/images/1.jpeg",
+      image: Rahul,
       
     },
     {
@@ -18,7 +21,7 @@ const AboutUs = () => {
       name: "Yash",
       role: "UI/UX Designer",
       bio: " Created the Local Climate Action page, helping users take localized steps toward sustainability.",
-      image: "/images/neel.jpeg",
+      image: Yash,
     },
     {
       id: 3,
@@ -43,17 +46,17 @@ const AboutUs = () => {
     },
     {
       id: 6,
-      name: "Eva Green",
+      name: "Om Ghag",
       role: "Community Manager",
       bio: "Built the Community Forum, fostering discussions and engagement on green initiatives.",
-      image: "/public/images/1.jpeg",
+      image: Om,
     },
   ];
 
   return (
     <div className="min-h-screen bg-green-100 py-12 px-6 sm:px-8 lg:px-12 text-gray-900">
       <div className="max-w-6xl !mx-auto text-center">
-        <h1 className="text-4xl font-bold text-green-700 !mt-16 !mb-6">Meet Our Team</h1>
+        <h1 className="text-4xl font-bold text-green-700 !mt-17 !mb-6">Meet Our Team</h1>
         <p className="text-lg text-green-600 !mb-10">
           We are a passionate team dedicated to sustainability. Get to know the people behind our mission!
         </p>
@@ -62,7 +65,7 @@ const AboutUs = () => {
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="bg-white rounded-lg shadow-lg p-6 text-center transform transition duration-300 hover:scale-105 border border-green-300"
+              className="bg-white rounded-lg shadow-lg !p-6 text-center transform transition duration-300 hover:scale-105 border border-green-300"
             >
               <img
                 src={member.image}

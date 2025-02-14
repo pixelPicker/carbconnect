@@ -1,6 +1,10 @@
 /* Global Styles */
 body {
   font-family: 'Arial', sans-serif;
+<<<<<<< HEAD
+  background-color: white;
+=======
+>>>>>>> 1d87b8b0ca3edfa361e99e0ed5e458b127e63f08
   margin: 0;
   padding: 0;
 }
