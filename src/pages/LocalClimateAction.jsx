@@ -71,12 +71,12 @@ const LocalClimateAction = () => {
             <p className="text-gray-600">Involve the community in decision-making to ensure sustainability.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-md text-center">
-            <img src="/src/assets/images/img6.jpg" alt="Funding" className="rounded-lg mb-4" />
+            <img src="/src/assets/images/fund.jpg" alt="Funding" className="rounded-lg mb-4" />
             <h3 className="text-xl font-semibold mb-2">Funding</h3>
             <p className="text-gray-600">Provide multi-year funding allocations to support local climate action.</p>
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-md text-center">
-            <img src="/src/assets/images/img7.jpg" alt="Frameworks" className="rounded-lg mb-4" />
+            <img src="/src/assets/images/frame.jpg" alt="Frameworks" className="rounded-lg mb-4" />
             <h3 className="text-xl font-semibold mb-2">Local Climate Action Frameworks</h3>
             <p className="text-gray-600">Use guides to help communities implement projects and programs.</p>
           </div>
@@ -107,30 +107,34 @@ const LocalClimateAction = () => {
         </div>
       </section>
       <section className="text-center !py-16 bg-green-100 mt-12 shadow-inner">
-        <motion.h2
-          className="text-4xl font-bold text-green-800"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          Join the Movement
-        </motion.h2>
-        <motion.p
-          className="!mt-4 text-lg text-gray-700"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          Take action today to create a greener tomorrow.
-        </motion.p>
-        <motion.button
-          className="!mt-6 bg-green-700 text-white !px-6 !py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-green-800 transition-all"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          Get Involved
-        </motion.button>
-      </section>
+  <motion.h2
+    className="text-4xl font-bold text-green-800"
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5 }}
+  >
+    Join the Movement
+  </motion.h2>
+  <motion.p
+    className="!mt-4 text-lg text-gray-700"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ delay: 0.3 }}
+  >
+    Take action today to create a greener tomorrow.
+  </motion.p>
+  <motion.a
+    href="https://forms.gle/SgNj2NSSQR7dGGBL8" // Replace with your actual Google Form link
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block !mt-6 bg-green-700 text-white !px-6 !py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-green-800 transition-all"
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+  >
+    Get Involved
+  </motion.a>
+</section>
+
 
 
       {/* Footer Section */}
