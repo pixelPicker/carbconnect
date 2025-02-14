@@ -24,16 +24,15 @@ const CommunityForum = () => {
   };
 
   return (
-<<<<<<< HEAD
+
     <div className="app bg-green-100">
       <header className="text-3xl font-bold text-center !py-4 !mt-16">Community Forum</header>
-=======
     <div className="app bg-green-300 !pt-20 font-Outfit">
->>>>>>> 1d87b8b0ca3edfa361e99e0ed5e458b127e63f08
       <main className="main-content">
         <NewPostForm addPost={addPost} />
         <ForumList posts={posts} />
       </main>
+    </div>
     </div>
   );
 };
