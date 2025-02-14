@@ -18,7 +18,7 @@ const NewPostForm = ({ addPost }) => {
   };
 
   return (
-    <div className="new-post-form">
+    <div className="new-post-form !mt-4">
       <h2>Create a new post</h2>
       <form onSubmit={handleSubmit}>
         <input
