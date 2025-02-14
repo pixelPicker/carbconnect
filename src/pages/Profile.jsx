@@ -21,7 +21,7 @@ function Profile() {
         <h1 className="font-RubikDoodleShadow sm:text-cyan-950 text-8xl !pb-2">{user.userName}</h1>
         <h1 className="font-Bricolage text-2xl sm:text-cyan-950 !pb-3">{user.email}</h1>
         <div className="flex gap-2">
-          <button className="!py-2 !px-4 bg-green-950 hover:bg-green-800 active:bg-green-700 transition-all duration-300 text-white font-Bricolage text-xl shadow-lg rounded-lg" onClick={userLogout}>Logout</button>
+          <button className=" !px-4 bg-green-950 hover:bg-green-800 active:bg-green-700 transition-all duration-300 text-white font-Bricolage text-xl shadow-lg rounded-lg" onClick={userLogout}>Logout</button>
           <Link to={-1} className="!py-2 !px-4 bg-green-950 hover:bg-green-800 active:bg-green-700 transition-all duration-300 text-white font-Bricolage text-xl shadow-lg rounded-lg">Go back</Link>
         </div>
       </div>

@@ -1,7 +1,6 @@
 /* Global Styles */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: lightgreen;
   margin: 0;
   padding: 0;
 }
@@ -83,8 +82,9 @@ textarea {
   font-size: 1rem;
 }
 
-button {
+.forum-post button {
   margin-top: 10px;
+  border-radius: 4px;
   background-color: #4caf50;
   color: white;
   border: none;
@@ -92,7 +92,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.forum-post button:hover {
   background-color: #45a049;
 }
 

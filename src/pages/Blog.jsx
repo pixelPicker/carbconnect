@@ -69,19 +69,19 @@ function Blog() {
 
 
     return (
-        <div className="container w-screen  !mt-20">
-            <h1 className="text-3xl font-bold text-center !mb-6">Understanding Carbon Footprint</h1>
-            <div className="grid  !px-16 grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="container min-w-full !mt-20">
+            <h1 className="text-3xl font-bold font-Bricolage text-center !mb-6">Understanding Carbon Footprint</h1>
+            <div className="grid !px-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {blogPosts.map((post, index) => (
-                    <div key={index} className='hover:scale-110 shadow-lg bg-amber-50 transition-all !p-6'>
-                        <img className='max-w-full aspect-square object-cover' src={post.image} />
-                        <h1 className='font-Bricolage text-3xl'>{post.title}</h1>
-                        <p className='font-Outfit text-lg'>{post.content}</p>
+                    <div key={index} className='hover:scale-102 rounded-lg bg-amber-50 transition-all !p-6'>
+                        <img className='aspect-[1/1] brightness-90 rounded-lg shadow-lg object-cover !mb-4' src={post.image} />
+                        <h1 className='font-Bricolage text-2xl overflow-hidden text-ellipsis line-clamp-2 !pb-1'>{post.title}</h1>
+                        <p className='font-Outfit text-lg overflow-hidden text-ellipsis line-clamp-3 !mb-8 whitespace-normal'>{post.content}</p>
                         <a 
                                 href={post.link} 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
-                                className="inline-block px-5 py-3 text-white bg-gradient-to-r from-green-500 to-green-700 rounded-lg shadow-md hover:from-green-600 hover:to-green-800 transform hover:scale-105 transition-all"
+                                className=" font-Outfit bg-green-600 rounded-sm text-white border-none !py-3 !px-4 cursor-pointer hover:bg-green-700"
                             >
                                 Read More →
                             </a>

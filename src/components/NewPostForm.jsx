@@ -19,7 +19,7 @@ const NewPostForm = ({ addPost }) => {
 
   return (
     <div className="new-post-form">
-      <h2>Create a new post</h2>
+      <h2 className="text-xl">Create a new post</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

@@ -31,7 +31,7 @@ function LogDashboard() {
     )
   }
   return (
-    <section className="!pt-20 !px-4 bg-cyan-50 min-h-screen">
+    <section className="!pt-20 !px-4 xl:!pb-0 !pb-10 bg-cyan-50 min-h-screen">
       <div className="flex items-center !py-2 border-b-[1px] border-b-gray-400 justify-between">
         <div className="flex items-center text-xl font-Bricolage text-cyan-950">
           <h1>Footprint Report</h1>

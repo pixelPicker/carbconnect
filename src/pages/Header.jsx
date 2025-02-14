@@ -26,7 +26,7 @@ function Header() {
         <h1 className="text-xl xl:text-[30px] text-cyan-950">Connect</h1>
       </div>
       <nav className="sm:block hidden">
-        <ul className="flex xl:text-lg items-center gap-4 xl:gap-16 !py-2 !px-4">
+        <ul className="flex xl:text-lg items-center gap-4 md:gap-8 lg:gap-12 xl:gap-16 !py-2 !px-4">
           <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'/'}>Home</NavLink>
           <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'calculator'}>Calculator</NavLink>
           <NavLink className={({ isActive }) => isActive ? "text-white" : "text-gray-200 hover:text-gray-100"} to={'blog'}>Blog</NavLink>
