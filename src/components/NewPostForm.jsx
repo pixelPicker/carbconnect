@@ -18,8 +18,13 @@ const NewPostForm = ({ addPost }) => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="new-post-form !mt-4">
       <h2>Create a new post</h2>
+=======
+    <div className="new-post-form">
+      <h2 className="text-xl">Create a new post</h2>
+>>>>>>> 1d87b8b0ca3edfa361e99e0ed5e458b127e63f08
       <form onSubmit={handleSubmit}>
         <input
           type="text"

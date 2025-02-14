@@ -9,6 +9,7 @@ import Calculator from "../pages/Calculator";
 import CreateLog from "../pages/CreateLog";
 import LogDashboard from "../pages/LogDashboard";
 import Profile from "../pages/Profile";
+import Blog from "../pages/Blog";
 import AboutUs from "../pages/aboutus";
 import ActionChallenges from "../pages/ActionChallenges";
 import LocalClimateAction from "../pages/LocalClimateAction";
@@ -32,9 +33,9 @@ const router = createBrowserRouter([
               { path: 'add-log', element: <CreateLog /> }
             ]
           },
+          {path: 'blog', element: <Blog />},
           {path: 'about' , element: < AboutUs/>},
          {path: 'challenges', element: <ActionChallenges />},
-          // {path: 'blog', element: <Blog />},
           {path: 'actions', element: <LocalClimateAction />},
           {path: 'shop', element: <Shop />},
           {path: 'forum', element: <CommunityForum />},
