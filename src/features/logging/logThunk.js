@@ -42,7 +42,9 @@ export const getAllLogs = createAsyncThunk(
         };
 
         request.onerror = () => {
-          reject(rejectWithValue(`Error fetching logs: ${request.error.message}`));
+          reject(
+            rejectWithValue(`Error fetching logs: ${request.error.message}`)
+          );
         };
       });
     } catch (error) {
@@ -52,9 +54,9 @@ export const getAllLogs = createAsyncThunk(
 );
 
 export const deleteAllLogs = async () => {
-  const db = await getDB(); 
-    const transaction = db.transaction("logEvent", "readwrite");
-    const objectStore = transaction.objectStore("logEvent");
+  const db = await getDB();
+  const transaction = db.transaction("logEvent", "readwrite");
+  const objectStore = transaction.objectStore("logEvent");
 
-    objectStore.clear();
-}
+  objectStore.clear();
+};
