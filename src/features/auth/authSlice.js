@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getUser, signup, signin, signout } from "./authThunk";
+import { signup, signin, deleteAllUsers } from "./authThunk";
 
 export const authSlice = createSlice({
   name: "auth",
@@ -62,19 +62,18 @@ export const authSlice = createSlice({
         state.error = action.error.message
       })
       
-      .addCase(signout.pending, (state, action) => {
+      .addCase(deleteAllUsers.pending, (state, action) => {
         state.loading = true
         state.error = null
       })
-      .addCase(signout.fulfilled, (state, action) => {
+      .addCase(deleteAllUsers.fulfilled, (state, action) => {
         state.loading = false
         state.user = null
       })
-      .addCase(signout.rejected, (state, action) => {
+      .addCase(deleteAllUsers.rejected, (state, action) => {
         state.loading = false
         state.error = action.error.message
       })
-
   },
 });
 

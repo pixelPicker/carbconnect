@@ -1,8 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { deleteUser, setError, setUser } from "./authSlice";
 import getDB from "../../dbService/db";
-
-const userKey = import.meta.env.VITE_USER_KEY;
 
 export const signup = createAsyncThunk(
   "auth/createUser",
@@ -44,7 +41,6 @@ export const signup = createAsyncThunk(
           reject(rejectWithValue(event.target.error?.message));
         };
       });
-
     } catch (error) {
       console.log(error.message);
       throw new Error(error.message);
@@ -106,7 +102,7 @@ export const getUser = async () => {
       getUser.onsuccess = (event) => {
         console.log(event.target.result, event);
         if (event.target.result) {
-          let user = event.target.result[0]
+          let user = event.target.result[0];
           resolve(user);
         } else {
           resolve(false);
@@ -123,41 +119,27 @@ export const getUser = async () => {
   }
 };
 
-export const signout = createAsyncThunk(
-  "auth/deleteUser",
-  async (_, { rejectWithValue }) => {
-    try {
-      const { error } = await clientSupabase.auth.signOut();
-      if (error) {
-        return rejectWithValue(error.message);
-      }
-    } catch (error) {
-      return rejectWithValue("Something went wrong. Please try again later");
-    }
-  }
-);
-
-export const deleteAllUsers = async () => {
+export const deleteAllUsers = createAsyncThunk("auth/signout", async () => {
   try {
-    const db = await getDB(); // Assuming getDB() returns the IndexedDB connection
+    const db = await getDB();
     const transaction = db.transaction("user", "readwrite");
     const objectStore = transaction.objectStore("user");
 
-    const request = objectStore.clear();
+    const result = await new Promise((resolve, reject) => {
+      const request = objectStore.clear();
 
-    return new Promise((resolve, reject) => {
       request.onsuccess = () => {
         console.log("All users have been deleted");
-        resolve();
+        resolve(true);
       };
 
       request.onerror = (event) => {
         console.error("Error deleting users:", event.target.error?.message);
-        reject(event.target.error?.message);
+        resolve(false);
       };
     });
   } catch (error) {
     console.error("Error in deleteAllUsers:", error.message);
     throw new Error(error.message);
   }
-};
+});

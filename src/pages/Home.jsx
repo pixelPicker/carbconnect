@@ -25,7 +25,7 @@ const Hero = () => {
       <section className="flex flex-col font-Outfit justify-center items-center w-full !pt-10 sm:pt-0 !px-4 bg-leaves bg-blend-hard-light min-h-screen bg-black">
         <p className="text-center bg-gray-400/40 border-[2px] border-green-800/50 text-green-800 !p-2 rounded-lg"> <Typewriter /></p>
         <h1 className="text-center text-green-950 text-3xl sm:text-5xl !mb-2 !mt-10 font-Bricolage sm:leading-15">Begin your Green Journey Today</h1>
-        <p className="text-center text-green-800 !mb-8">Take the first step towards a sustainable future – explore tools, tackle challenges,<br />and connect with a like-minded community!</p>
+        <p className="text-center text-green-800 text-lg !mb-8">Take the first step towards a sustainable future – explore tools, tackle challenges,<br />and connect with a like-minded community!</p>
         <div className="flex gap-4">
           <Link to ={'challenges'} className="flex items-center cursor-pointer gap-2 !py-2 !px-3 text-white transition-all duration-300 hover:bg-green-800 shadow-xl active:bg-green-700 bg-green-950 rounded-lg">Challenge Yourself <BsArrowUpRightCircleFill /></Link>
           <Link to={'actions'} className="flex items-center cursor-pointer gap-2 !py-2 !px-3 text-green-800 transition-all border-[2px] border-green-800/50 hover:bg-gray-400/50 active:bg-gray-400/60 bg-gray-400/40 rounded-lg">Join Our Program <BsArrowUpRightCircleFill /></Link>

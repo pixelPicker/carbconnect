@@ -10,10 +10,11 @@ function Profile() {
   const navigate = useNavigate();
 
   const userLogout = () => {
+    deleteAllLogs()
     dispatch(deleteAllUsers())
-    dispatch(deleteAllLogs())
     navigate('/');
   }
+
   return (
     <section className="flex justify-center overflow-hidden items-center min-h-screen">
       <img src={"src/assets/images/idk.jpg"} className="absolute sm:static brightness-60 sm:brightness-100 top-0 left-0 max-w-screen w-screen h-screen sm:max-h-screen min-h-screen object-cover sm:w-1/2" />
