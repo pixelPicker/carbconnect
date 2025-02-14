@@ -6,6 +6,7 @@ import { LuTrees } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import ActionChallenges from "./ActionChallenges";
 import LocalClimateAction from "./LocalClimateAction";
+import { TfiLink } from "react-icons/tfi";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <Hero />
       <Impact />
       <Services />
+      <Footer />
     </>
   );
 }
@@ -27,7 +29,7 @@ const Hero = () => {
         <h1 className="text-center text-green-950 text-3xl sm:text-5xl !mb-2 !mt-10 font-Bricolage sm:leading-15">Begin your Green Journey Today</h1>
         <p className="text-center text-green-800 text-lg !mb-8">Take the first step towards a sustainable future – explore tools, tackle challenges,<br />and connect with a like-minded community!</p>
         <div className="flex gap-4">
-          <Link to ={'challenges'} className="flex items-center cursor-pointer gap-2 !py-2 !px-3 text-white transition-all duration-300 hover:bg-green-800 shadow-xl active:bg-green-700 bg-green-950 rounded-lg">Challenge Yourself <BsArrowUpRightCircleFill /></Link>
+          <Link to={'challenges'} className="flex items-center cursor-pointer gap-2 !py-2 !px-3 text-white transition-all duration-300 hover:bg-green-800 shadow-xl active:bg-green-700 bg-green-950 rounded-lg">Challenge Yourself <BsArrowUpRightCircleFill /></Link>
           <Link to={'actions'} className="flex items-center cursor-pointer gap-2 !py-2 !px-3 text-green-800 transition-all border-[2px] border-green-800/50 hover:bg-gray-400/50 active:bg-gray-400/60 bg-gray-400/40 rounded-lg">Join Our Program <BsArrowUpRightCircleFill /></Link>
         </div>
       </section>
@@ -123,54 +125,76 @@ const Typewriter = () => {
 
 const Services = () => {
   return (
-    <section className="md:!p-16 !py-16 !px-4 bg-stone-200">
+    <section className="md:!p-16 !py-16 !px-4 bg-stone-300">
       <h1 className="text-3xl sm:text-5xl font-Bricolage text-cyan-950 !pb-2">Our Services</h1>
       <h3 className="sm:text-lg font-Bricolage text-cyan-900 !pl-1 !pb-8">Explore the features that make CarbConnect your go-to platform for sustainability!</h3>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 grid-rows-5 lg:grid-rows-3 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 grid-rows-5 lg:grid-rows-3 gap-4">
         <div className="relative rounded-lg lg:col-span-2 lg:row-span-2">
           <div className="font-Bricolage flex flex-col items-end lg:text-3xl absolute right-0 top-0 z-10">
             <h1 className="bg-cyan-950 w-fit text-white rounded-bl-2xl rounded-tr-lg !p-2">Track your daily</h1>
             <h1 className="bg-cyan-950 w-fit text-white rounded-bl-2xl !p-2">Emissions</h1>
           </div>
-          <img src="src/assets/images/cbf_ss.png" className="brightness-90 rounded-lg" />
-        </div>
-        
-        <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-3 overflow-hidden">
-           <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-              Sustainable Goals
-        </div>
-          <img src="src/assets/images/image2.png" className="brightness-90 rounded-lg w-full h-full object-cover" />
-         </div>
-        
-         <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-3 lg:row-start-2 overflow-hidden">
-            <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-                Eco Challenges
-        </div>
-          <img src="src/assets/images/image3.jpeg" className="brightness-90 rounded-lg w-full h-full object-cover" />
+          <img src="src/assets/images/cbf_ss.png" className="brightness-90 rounded-lg min-h-full object-cover object-left-top" />
         </div>
 
-          <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-3 lg:row-start-3 overflow-hidden">
-            <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-               Carbon Footprint
-        </div>
-          <img src="src/assets/images/image3.jpeg" className="brightness-90 rounded-lg w-full h-full object-cover" />
-        </div>     
-
-          <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-2 lg:row-start-3 overflow-hidden">
-             <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-               Community Impact
-        </div>
-          <img src="src/assets/images/image3.jpeg" className="brightness-90 rounded-lg w-full h-full object-cover" />
+        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-3 overflow-hidden">
+          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+            Sustainability Blog
+          </div>
+          <img src="src/assets/images/blog.png" className="brightness-90 rounded-lg w-full h-full object-cover" />
         </div>
 
-           <div className="relative border-[1px] border-gray-400 p-1 lg:p-4 rounded-lg lg:col-start-1 lg:row-start-3 overflow-hidden">
-              <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-               Green Initiatives
+        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-3 lg:row-start-2 overflow-hidden">
+          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+            Actionable Challenges
+          </div>
+          <img src="src/assets/images/actionable_challenges.png" className="brightness-90 rounded-lg w-full h-full object-cover" />
         </div>
-          <img src="src/assets/images/image3.jpeg" className="brightness-90 rounded-lg w-full h-full object-cover" />
+
+        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-3 lg:row-start-3 overflow-hidden">
+          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+            Eco Friendly Shop
+          </div>
+          <img src="src/assets/images/shop.png" className="brightness-90 rounded-lg w-full h-full object-cover" />
         </div>
-</div>      
+
+        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-2 lg:row-start-3 overflow-hidden">
+          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+            Community Impact
+          </div>
+          <img src="src/assets/images/forums.png" className="brightness-90 rounded-lg w-full h-full object-cover" />
+        </div>
+
+        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-1 lg:row-start-3 overflow-hidden">
+          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
+            Green Initiatives
+          </div>
+          <img src="src/assets/images/joinInitiative.png" className="brightness-90 rounded-lg w-full h-full object-cover" />
+        </div>
+      </div>
     </section>
+  )
+}
+
+const Footer = () => {
+  return (
+    <footer className="!py-8 !px-16 grid place-items-start gap-4 sm:grid-cols-2 bg-cyan-950">
+      <div className="flex items-center sm:pl-0 !pt-1 font-RubikDoodleShadow text-3xl text-white font-extrabold">
+        <h1 className="text-xl xl:text-[30px]">Carb</h1>
+        <TfiLink className="text-xl xl:text-[30px]" />
+        <h1 className="text-xl xl:text-[30px] text-cyan-200">Connect</h1>
+      </div>
+      <div className="flex flex-col font-Outfit text-gray-200 items-start gap-1">
+        <Link to={'/'}>Home</Link>
+        <Link to={'calculator'}>Calculator</Link>
+        <Link to={'challenges'}>Challenges</Link>
+        <Link to={'actions'}>Local Actions</Link>
+        <Link to={'blog'}>Blog</Link>
+        <Link to={'shop'}>Shop</Link>
+        <Link to={'forums'}>Forum</Link>
+        <Link TO={'about'}>About</Link>
+      </div>
+    </footer>
   )
 }

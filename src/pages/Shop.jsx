@@ -1,24 +1,23 @@
 import { useState } from "react";
-import Card from "../components/ProCard";
-import Button from "../components/ProButton";
-import Input from "../components/ProInput";
 import { ShoppingCart, Leaf } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Select, MenuItem } from "@mui/material";
 
-const Select = ({ options, onValueChange }) => {
-  return (
-    <select
-      onChange={(e) => onValueChange(e.target.value)}
-      className="p-2 border rounded-lg bg-white"
-    >
-      {options.map((option) => (
-        <option key={option} value={option}>
-          {option}
-        </option>
-      ))}
-    </select>
-  );
-};
+
+
+// const Select = ({ options, onValueChange }) => {
+//   return (
+//     <select
+//       onChange={(e) => onValueChange(e.target.value)}
+//       className="p-2 border rounded-lg bg-white"
+//     >
+//       {options.map((option) => (
+//         <option key={option} value={option}>
+//           {option}
+//         </option>
+//       ))}
+//     </select>
+//   );
+// };
 
 const products = [
   { id: 1, name: "Eco-friendly Water Bottle", price: "$25", category: "Reusables", image: "https://th.bing.com/th/id/OIP.KzIjocsS0QhhsSBsPiobEQHaI9?w=167&h=201&c=7&r=0&o=5&dpr=1.1&pid=1.7", link: "https://shop.sensworldwide.com/products/hydrawooden-500ml?variant=44669508124926" },
@@ -39,30 +38,60 @@ function App() {
       product.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const categories = ["All", ...new Set(products.map((p) => p.category))];
+
   return (
-    <div className="min-h-screen bg-green-100 !py-12 !px-6 sm:px-8 lg:px-12 text-gray-900">
-      <h1 className="text-3xl font-bold flex items-center gap-2 !mb-6 !mt-17">
+    <div className="min-h-screen bg-green-100 !py-30 !px-4 sm:!px-12 text-gray-900">
+      <h1 className="text-2xl sm:text-4xl font-Bricolage text-green-950 font-bold flex items-center gap-2 !mb-6">
         <Leaf className="text-green-600" /> Sustainable Product Marketplace
       </h1>
-      
-      <div className="flex gap-4 !mb-6">
-        <Input
+
+      <div className="flex items-center gap-4 !mb-8 md:w-1/2">
+        <input
           placeholder="Search for products..."
+          type="text"
           value={search}
+          className="w-full border-2 border-black !py-3 !px-6 bg-transparent rounded-lg outline-none placeholder:text-gray-600 placeholder:font-Outfit font-Outfit"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <Select options={["All", "Reusables", "Personal Care", "Fashion", "Technology"]} onValueChange={setCategory} />
+        <Select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          sx={{
+            outline: "none",
+            border: "none",
+            width: "100%",
+            fontFamily: 'Outfit',
+            bgcolor: '#e5e7eb',
+            color: "black",
+            flex: '1',
+            transition: 'all',
+            borderRadius: "4px",
+            "& .MuiOutlinedInput-notchedOutline": { border: "none" },
+            "&:hover": { backgroundColor: "#d1d5db" },
+          }}
+        >
+          {categories.map((cat) => (
+            <MenuItem key={cat} value={cat} className="font-Outfit">
+              {cat}
+            </MenuItem>
+          ))}
+        </Select>
       </div>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+      <h1 className="font-Bricolage text-3xl text-green-950 !pb-4">Products</h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {filteredProducts.map((product) => (
-          <div key={product.id} className="hover:shadow-xl transition !p-4 border rounded-lg">
-            <img src={product.image} alt={product.name} className="w-full h-70 object-cover rounded-lg" />
-            <h3 className="text-lg font-semibold !mt-2">{product.name}</h3>
-            <p className="text-green-700 font-semibold">{product.price}</p>
-            <a href={product.link} target="_blank" rel="noopener noreferrer" className="!mt-2 w-full flex items-center gap-2 text-blue-600 hover:underline">
-              Buy Now <ShoppingCart />
-            </a>
+          <div key={product.id} className="hover:shadow-xl transition !p-4 border-2 border-black rounded-lg">
+            <img src={product.image} alt={product.name} className="w-full max-h-70 min-h-70 brightness-90 object-cover rounded-lg" />
+            <h3 className="text-2xl font-Bricolage text-green-950 font-semibold !my-3">{product.name}</h3>
+            <div className="flex font-Outfit justify-between items-center">
+              <p className="text-green-700 font-semibold text-xl">{product.price}</p>
+              <a href={product.link} target="_blank" rel="noopener noreferrer" className="flex bg-cyan-950 text-white items-center gap-2 !py-1 !px-3 rounded-sm hover:bg-cyan-800 transition-all hover:underline">
+                Buy Now <ShoppingCart />
+              </a>
+            </div>
           </div>
         ))}
       </div>

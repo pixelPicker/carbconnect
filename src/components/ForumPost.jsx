@@ -13,7 +13,7 @@ const ForumPost = ({ post }) => {
 
   return (
     <div className="forum-post">
-      <h2>{post.title}</h2>
+      <h2 className="text-xl font-medium !pb-4">{post.title}</h2>
       <p>{post.content}</p>
       <div className="replies">
         {replies.map((reply, index) => (

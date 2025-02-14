@@ -25,9 +25,9 @@ const CommunityForum = () => {
 
   return (
 
-    <div className="app bg-green-100">
-      <header className="text-3xl font-bold text-center !py-4 !mt-16">Community Forum</header>
-    <div className="app bg-green-300 !pt-20 font-Outfit">
+    <div className="app bg-green-100 !pt-20">
+      <header className="text-3xl font-bold font-Bricolage text-center border-b-[2px] border-black !py-4 !pt-10">Community Forum</header>
+    <div className="app bg-green-300 !pt-10 font-Outfit">
       <main className="main-content">
         <NewPostForm addPost={addPost} />
         <ForumList posts={posts} />
