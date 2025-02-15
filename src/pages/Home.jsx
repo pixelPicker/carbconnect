@@ -192,8 +192,8 @@ const Footer = () => {
         <Link to={'actions'}>Local Actions</Link>
         <Link to={'blog'}>Blog</Link>
         <Link to={'shop'}>Shop</Link>
-        <Link to={'forums'}>Forum</Link>
-        <Link TO={'about'}>About</Link>
+        <Link to={'forum'}>Forum</Link>
+        <Link to={'about'}>About</Link>
       </div>
     </footer>
   )
