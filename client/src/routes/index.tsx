@@ -1,10 +1,8 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import LeavesBg from '@/assets/images/leaves_bg.jpg'
 import { useEffect, useState } from 'react'
 import {
   ArrowUpRightIcon,
   BeakerIcon,
-  LinkIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline'
 import { GlobeAltIcon } from '@heroicons/react/24/outline'
@@ -16,12 +14,10 @@ export const Route = createFileRoute('/')({
 
 function App() {
   return (
-    <>
+    <div className='bg-fixed bg-leaves bg-blend-hard-light bg-black'>
       <Hero />
       <Impact />
-      <Services />
-      <Footer />
-    </>
+    </div>
   )
 }
 
@@ -29,9 +25,8 @@ const Hero = () => {
   return (
     <>
       <Header />
-      <section className="flex flex-col font-Outfit justify-center items-center w-full pt-10  sm:pt-0 px-4  bg-leaves bg-blend-hard-light min-h-screen bg-black">
+      <section className="flex flex-col font-Outfit justify-center items-center w-full pt-10  sm:pt-0 px-4 min-h-screen">
         <p className="text-center bg-gray-400/40 border-[2px] border-green-800/50 text-green-800 !p-2 rounded-lg">
-          {' '}
           <Typewriter />
         </p>
         <h1 className="text-center text-green-950 text-3xl sm:text-5xl mb-2  mt-10  font-Bricolage sm:leading-15">
@@ -46,15 +41,15 @@ const Hero = () => {
         <div className="flex gap-4">
           <Link
             to="/"
-            className="flex items-center cursor-pointer gap-2 py-2  px-3  text-white transition-all duration-300 hover:bg-green-800 shadow-xl active:bg-green-700 bg-green-950 rounded-lg"
+            className="flex items-center cursor-pointer gap-2 py-3 px-5 text-white transition-all duration-300 hover:bg-green-800 shadow-xl active:bg-green-700 bg-green-950 rounded-lg"
           >
-            Challenge Yourself <ArrowUpRightIcon />
+            Get Started <ArrowUpRightIcon className='size-5' />
           </Link>
           <Link
             to="/"
-            className="flex items-center cursor-pointer gap-2 py-2  px-3  text-green-800 transition-all border-[2px] border-green-800/50 hover:bg-gray-400/50 active:bg-gray-400/60 bg-gray-400/40 rounded-lg"
+            className="flex items-center cursor-pointer gap-2 py-3 px-5 text-green-800 transition-all border-[2px] border-green-800/50 hover:bg-gray-400/50 active:bg-gray-400/60 bg-gray-400/40 rounded-lg"
           >
-            Join Our Program <ArrowUpRightIcon />
+             <ArrowUpRightIcon className='size-5' />
           </Link>
         </div>
       </section>
@@ -65,32 +60,32 @@ const Hero = () => {
 const Impact = () => {
   return (
     <>
-      <section className="flex flex-col justify-center items-center py-8  sm:py-16  bg-green-100/50">
-        <h1 className="text-3xl md:text-5xl px-2  text-center font-Bricolage text-green-950 pb-8  sm:pb-16 ">
+      <section className="flex flex-col justify-center items-center py-8 sm:py-16">
+        <h1 className="text-3xl md:text-5xl px-2 text-center font-Bricolage text-green-950 pb-8  sm:pb-16 ">
           The impact of carbon on our world
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 font-Outfit px-4  md:px-8  gap-8">
-          <div className="!p-5 rounded-lg bg-green-200 shadow-lg">
+          <div className="!p-5 rounded-lg bg-green-200/50 backdrop-blur-[2px] shadow-lg">
             <div className="flex justify-between items-center text-3xl sm:text-5xl font-Bricolage text-green-950">
               <h1>1.2°C </h1>
-              <GlobeAltIcon />
+              <GlobeAltIcon className='size-14'/>
             </div>
             <h3 className="text-xl sm:text-2xl text-green-950 pb-2  pt-3 ">
               Increase in Global Temperatures
             </h3>
             <p className="text-green-900 ">
               The rise in carbon emissions has led to a significant increase in
-              global temperatures. Since the late 19th century, Earth’s average
+              global temperatures. Since the late 19th century, Earth's average
               temperature has risen by 1.2°C, causing disrupted weather
               patterns.
             </p>
           </div>
 
-          <div className="py-3  px-5  rounded-lg bg-green-200 shadow-lg">
+          <div className="py-3  px-5  rounded-lg bg-green-200/50 backdrop-blur-[2px] shadow-lg">
             <div className="flex justify-between items-center text-3xl sm:text-5xl font-Bricolage text-green-950">
               <h1>30% </h1>
-              <BeakerIcon />
+              <BeakerIcon className='size-14'/>
             </div>
             <h3 className="text-xl sm:text-2xl text-green-950 pb-2  pt-3 ">
               More CO2 absorbed by Oceans
@@ -102,10 +97,10 @@ const Impact = () => {
             </p>
           </div>
 
-          <div className="py-3  px-5  rounded-lg bg-green-200 shadow-lg">
+          <div className="py-3  px-5  rounded-lg bg-green-200/50 backdrop-blur-[2px] shadow-lg">
             <div className="flex justify-between items-center text-3xl sm:text-5xl font-Bricolage text-green-950">
               <h1>15</h1>
-              <SparklesIcon />
+              <SparklesIcon className='size-14'/>
             </div>
             <h3 className="text-xl sm:text-2xl text-green-950 pb-2  pt-3 ">
               Billion Trees lost Annually
@@ -163,108 +158,5 @@ const Typewriter = () => {
       {text}
       <span className="animate-pulse">|</span>
     </div>
-  )
-}
-
-const Services = () => {
-  return (
-    <section className="md:!p-16 py-16  px-4  bg-stone-300">
-      <h1 className="text-3xl sm:text-5xl font-Bricolage text-cyan-950 pb-2 ">
-        Our Services
-      </h1>
-      <h3 className="sm:text-lg font-Bricolage text-cyan-900 pl-1  pb-8 ">
-        Explore the features that make CarbConnect your go-to platform for
-        sustainability!
-      </h3>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 grid-rows-5 lg:grid-rows-3 gap-4">
-        <div className="relative rounded-lg lg:col-span-2 lg:row-span-2">
-          <div className="font-Bricolage flex flex-col items-end lg:text-3xl absolute right-0 top-0 z-10">
-            <h1 className="bg-cyan-950 w-fit text-white rounded-bl-2xl rounded-tr-lg !p-2">
-              Track your daily
-            </h1>
-            <h1 className="bg-cyan-950 w-fit text-white rounded-bl-2xl !p-2">
-              Emissions
-            </h1>
-          </div>
-          <img
-            src={LeavesBg}
-            className="brightness-90 rounded-lg min-h-full object-cover object-left-top"
-          />
-        </div>
-
-        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-3 overflow-hidden">
-          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-            Sustainability Blog
-          </div>
-          <img
-            src="src/assets/images/blog.png"
-            className="brightness-90 rounded-lg w-full h-full object-cover"
-          />
-        </div>
-
-        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-3 lg:row-start-2 overflow-hidden">
-          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-            Actionable Challenges
-          </div>
-          <img
-            src="src/assets/images/actionable_challenges.png"
-            className="brightness-90 rounded-lg w-full h-full object-cover"
-          />
-        </div>
-
-        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-3 lg:row-start-3 overflow-hidden">
-          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-            Eco Friendly Shop
-          </div>
-          <img
-            src="src/assets/images/shop.png"
-            className="brightness-90 rounded-lg w-full h-full object-cover"
-          />
-        </div>
-
-        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-2 lg:row-start-3 overflow-hidden">
-          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-            Community Impact
-          </div>
-          <img
-            src="src/assets/images/forums.png"
-            className="brightness-90 rounded-lg w-full h-full object-cover"
-          />
-        </div>
-
-        <div className="relative border-[1px] border-gray-400 rounded-lg lg:col-start-1 lg:row-start-3 overflow-hidden">
-          <div className="absolute right-0 top-0 bg-cyan-950 text-white rounded-bl-2xl rounded-tr-lg !p-2 font-Bricolage z-10">
-            Green Initiatives
-          </div>
-          <img
-            src="src/assets/images/joinInitiative.png"
-            className="brightness-90 rounded-lg w-full h-full object-cover"
-          />
-        </div>
-      </div>
-    </section>
-  )
-}
-
-const Footer = () => {
-  return (
-    <footer className="py-8  px-16  grid place-items-start gap-4 sm:grid-cols-2 bg-cyan-950">
-      <div className="flex items-center sm:pl-0 pt-1  font-RubikDoodleShadow text-3xl text-white font-extrabold">
-        <h1 className="text-xl xl:text-[30px]">Carb</h1>
-        <LinkIcon className="text-xl xl:text-[30px]" />
-        <h1 className="text-xl xl:text-[30px] text-cyan-200">Connect</h1>
-      </div>
-      <div className="flex flex-col font-Outfit text-gray-200 items-start gap-1">
-        <Link to="/">Home</Link>
-        <Link to="/">Calculator</Link>
-        <Link to="/">Challenges</Link>
-        <Link to="/">Local Actions</Link>
-        <Link to="/">Blog</Link>
-        <Link to="/">Shop</Link>
-        <Link to="/">Forum</Link>
-        <Link to="/">About</Link>
-      </div>
-    </footer>
   )
 }

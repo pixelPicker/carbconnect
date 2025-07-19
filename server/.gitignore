@@ -4,8 +4,8 @@ dist
 dist-ssr
 *.local
 count.txt
-.env
+*.env
 .nitro
 .tanstack
-.txt
-.md
+*.txt
+*.md
