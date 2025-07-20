@@ -12,7 +12,7 @@ function RouteComponent() {
   if (!user) return null
 
   return (
-    <div className="min-h-[calc(100vh-16px)] flex items-center justify-center">
+    <div className="h-full flex items-center justify-center">
       <div className="w-full max-w-xl flex flex-col items-center text-stone-800 font-Outfit space-y-6">
         <div className="flex flex-col items-center gap-3">
           <Avatar className="size-20">

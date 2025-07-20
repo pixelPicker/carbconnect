@@ -87,7 +87,7 @@ function Dashboard() {
   ]
 
   return (
-    <div className="flex flex-col md:flex-row w-screen h-screen overflow-y-hidden bg-stone-100">
+    <div className="flex flex-col md:flex-row w-screen h-screen overflow-x-hidden overflow-y-hidden bg-stone-100">
       <ul className="flex sticky md:flex-col justify-around md:justify-center items-center gap-2 px-4 md:pt-6 py-2">
         {sidebarLinks.map((link) => (
           <SideBarIcon icon={link.icon} label={link.label} to={link.to} />
