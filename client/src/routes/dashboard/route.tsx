@@ -10,8 +10,10 @@ import { useEffect, type ComponentType, type SVGProps } from 'react'
 import { useSessionStore } from '../../store/sessionStore'
 import { LoadingState } from '@/components/LoadingState'
 import { ErrorState } from '@/components/ErrorState'
-import { CogIcon } from '@heroicons/react/24/outline'
-import { CalendarIcon } from '@heroicons/react/24/outline'
+import {
+  CalendarIcon,
+  InformationCircleIcon,
+} from '@heroicons/react/24/outline'
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
 import { HomeIcon } from '@heroicons/react/24/outline'
 import { useLogStore } from '@/store/logStore'
@@ -81,16 +83,17 @@ function Dashboard() {
       label: 'Profile',
       icon: ChatBubbleLeftRightIcon,
     },
+    { to: '/dashboard/about', label: 'About', icon: InformationCircleIcon },
   ]
 
   return (
-    <div className="flex w-screen h-screen overflow-y-hidden bg-stone-100">
-      <ul className="flex flex-col justify-center items-center gap-2 px-4 pt-6 py-2">
+    <div className="flex flex-col md:flex-row w-screen h-screen overflow-y-hidden bg-stone-100">
+      <ul className="flex sticky md:flex-col justify-around md:justify-center items-center gap-2 px-4 md:pt-6 py-2">
         {sidebarLinks.map((link) => (
           <SideBarIcon icon={link.icon} label={link.label} to={link.to} />
         ))}
       </ul>
-      <div className="w-[1.5px] h-full bg-stone-300"></div>
+      <div className="w-full h-[1.5px] md:w-[1.5px] md:h-full bg-stone-300"></div>
       <div className="px-4 bg-stone-100 py-2 flex-1 font-Outfit overflow-y-scroll">
         <Outlet />
       </div>

@@ -1,7 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { useUserStore } from '@/store/userStore'
 import { createFileRoute } from '@tanstack/react-router'
-import { Badge } from 'lucide-react'
 
 export const Route = createFileRoute('/dashboard/profile')({
   component: RouteComponent,

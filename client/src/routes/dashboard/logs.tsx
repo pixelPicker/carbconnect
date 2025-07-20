@@ -12,7 +12,8 @@ import type { Log } from '@/types/logType'
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useState } from 'react'
 import { API_BASE_URL } from '@/lib/constants'
-import { ChevronDown, ChevronUp, DeleteIcon, Trash2 } from 'lucide-react'
+import { ChevronDown, ChevronUp, Trash2 } from 'lucide-react'
+import { NoLogsFound } from '@/components/NoLogsFound'
 
 export const Route = createFileRoute('/dashboard/logs')({
   component: RouteComponent,
@@ -30,6 +31,7 @@ function Logs() {
   const handleDeleteAllLogs = async () => {
     const res = await fetch(`${API_BASE_URL}log/deleteAll`, {
       credentials: 'include',
+      method: 'DELETE',
     })
     if (!res.ok) {
       return
@@ -39,21 +41,21 @@ function Logs() {
 
   return (
     <div className="flex font-Outfit flex-col h-full w-full">
-      <div className="flex items-center justify-between mb-4 px-2">
+      <div className="flex items-center justify-between my-4 px-2">
         <h1 className="text-3xl font-semibold font-Bricolage text-green-900">
           All Logs
         </h1>
         <div className="flex items-center gap-2">
           <Link
             to="/dashboard/add-log"
-            className="bg-green-800 hover:bg-green-900 text-white px-4 py-2 rounded-md font-medium transition"
+            className="bg-green-800 cursor-pointer hover:bg-green-900 text-white px-4 py-2 rounded-md font-medium transition"
           >
             + New Log
           </Link>
           {logs.length > 0 && (
             <button
               onClick={handleDeleteAllLogs}
-              className="bg-green-800 hover:bg-green-900 text-white px-4 py-2 rounded-md font-medium transition"
+              className="bg-green-800 cursor-pointer hover:bg-green-900 text-white px-4 py-2 rounded-md font-medium transition"
             >
               Delete All
             </button>
@@ -61,7 +63,7 @@ function Logs() {
         </div>
       </div>
 
-      <LogsTable data={logs} />
+      {logs.length > 0 ? <LogsTable data={logs} /> : <NoLogsFound />}
     </div>
   )
 }
@@ -108,7 +110,10 @@ function LogsTable({ data }: { data: Log[] }) {
       id: 'delete',
       header: 'Actions',
       cell: (info) => (
-        <Trash2 />
+        <Trash2
+          className="cursor-pointer"
+          onClick={() => handleDeleteLog(parseInt(info.row.id))}
+        />
       ),
     }),
   ]
@@ -127,6 +132,7 @@ function LogsTable({ data }: { data: Log[] }) {
   const handleDeleteLog = async (logId: Log['id']) => {
     const res = await fetch(`${API_BASE_URL}log/delete/${logId}`, {
       credentials: 'include',
+      method: 'DELETE',
     })
     if (!res.ok) {
       return
@@ -182,3 +188,4 @@ function LogsTable({ data }: { data: Log[] }) {
     </div>
   )
 }
+

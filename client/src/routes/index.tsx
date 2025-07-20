@@ -6,7 +6,6 @@ import {
   SparklesIcon,
 } from '@heroicons/react/24/outline'
 import { GlobeAltIcon } from '@heroicons/react/24/outline'
-import Header from '@/components/Header'
 
 export const Route = createFileRoute('/')({
   component: App,
@@ -14,7 +13,7 @@ export const Route = createFileRoute('/')({
 
 function App() {
   return (
-    <div className='bg-fixed bg-leaves bg-blend-hard-light bg-black'>
+    <div className="bg-fixed bg-leaves bg-blend-hard-light bg-black">
       <Hero />
       <Impact />
     </div>
@@ -24,8 +23,7 @@ function App() {
 const Hero = () => {
   return (
     <>
-      <Header />
-      <section className="flex flex-col font-Outfit justify-center items-center w-full pt-10  sm:pt-0 px-4 min-h-screen">
+      <section className="flex flex-col font-Outfit justify-center items-center w-full sm:pt-0 px-4 min-h-screen">
         <p className="text-center bg-gray-400/40 border-[2px] border-green-800/50 text-green-800 !p-2 rounded-lg">
           <Typewriter />
         </p>
@@ -38,20 +36,17 @@ const Hero = () => {
           <br />
           and connect with a like-minded community!
         </p>
-        <div className="flex gap-4">
-          <Link
-            to="/"
-            className="flex items-center cursor-pointer gap-2 py-3 px-5 text-white transition-all duration-300 hover:bg-green-800 shadow-xl active:bg-green-700 bg-green-950 rounded-lg"
-          >
-            Get Started <ArrowUpRightIcon className='size-5' />
-          </Link>
-          <Link
-            to="/"
-            className="flex items-center cursor-pointer gap-2 py-3 px-5 text-green-800 transition-all border-[2px] border-green-800/50 hover:bg-gray-400/50 active:bg-gray-400/60 bg-gray-400/40 rounded-lg"
-          >
-             <ArrowUpRightIcon className='size-5' />
-          </Link>
-        </div>
+        <Link to="/dashboard" className="flex gap-2">
+          <div className="flex items-center cursor-pointer gap-2 py-3 px-5 text-white transition-all duration-300 hover:bg-green-800 shadow-xl active:bg-green-700 bg-green-950 rounded-lg">
+            Get Started
+          </div>
+        </Link>
+        <Link
+          to="/dashboard"
+          className="flex items-center cursor-pointer gap-2 py-3 px-5 text-green-800 transition-all border-[2px] border-green-800/50 hover:bg-gray-400/50 active:bg-gray-400/60 bg-gray-400/40 rounded-lg"
+        >
+          <ArrowUpRightIcon className="size-5" />
+        </Link>
       </section>
     </>
   )
@@ -69,7 +64,7 @@ const Impact = () => {
           <div className="!p-5 rounded-lg bg-green-200/50 backdrop-blur-[2px] shadow-lg">
             <div className="flex justify-between items-center text-3xl sm:text-5xl font-Bricolage text-green-950">
               <h1>1.2°C </h1>
-              <GlobeAltIcon className='size-14'/>
+              <GlobeAltIcon className="size-14" />
             </div>
             <h3 className="text-xl sm:text-2xl text-green-950 pb-2  pt-3 ">
               Increase in Global Temperatures
@@ -85,7 +80,7 @@ const Impact = () => {
           <div className="py-3  px-5  rounded-lg bg-green-200/50 backdrop-blur-[2px] shadow-lg">
             <div className="flex justify-between items-center text-3xl sm:text-5xl font-Bricolage text-green-950">
               <h1>30% </h1>
-              <BeakerIcon className='size-14'/>
+              <BeakerIcon className="size-14" />
             </div>
             <h3 className="text-xl sm:text-2xl text-green-950 pb-2  pt-3 ">
               More CO2 absorbed by Oceans
@@ -100,7 +95,7 @@ const Impact = () => {
           <div className="py-3  px-5  rounded-lg bg-green-200/50 backdrop-blur-[2px] shadow-lg">
             <div className="flex justify-between items-center text-3xl sm:text-5xl font-Bricolage text-green-950">
               <h1>15</h1>
-              <SparklesIcon className='size-14'/>
+              <SparklesIcon className="size-14" />
             </div>
             <h3 className="text-xl sm:text-2xl text-green-950 pb-2  pt-3 ">
               Billion Trees lost Annually

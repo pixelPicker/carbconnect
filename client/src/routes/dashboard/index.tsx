@@ -1,6 +1,7 @@
 import { EmissionBreakdown } from '@/components/charts/category-pie-chart'
 import { DailyEmissions } from '@/components/charts/daily-emission-bar-chart'
 import { EmissionsChart } from '@/components/charts/emission-chart'
+import { NoLogsFound } from '@/components/NoLogsFound'
 import { useLogStore } from '@/store/logStore'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -79,7 +80,7 @@ function Charts() {
     <>
       <EmissionsChart data={dateAndEmission} />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-2 gap-4">
         <EmissionBreakdown
           data={logs.map((log) => {
             return {

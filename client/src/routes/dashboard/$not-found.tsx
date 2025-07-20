@@ -16,6 +16,7 @@ function RouteComponent() {
   return (
     <div className="w-full h-full overflow-hidden flex flex-col justify-center items-center">
       <img
+        loading='lazy'
         src="https://img.freepik.com/free-vector/404-error-lost-space-concept-illustration_114360-7901.jpg"
         className="w-1/3 aspect-square"
       />

@@ -9,22 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as DashboardProfileRouteImport } from './routes/dashboard/profile'
 import { Route as DashboardLogsRouteImport } from './routes/dashboard/logs'
 import { Route as DashboardAddLogRouteImport } from './routes/dashboard/add-log'
+import { Route as DashboardAboutRouteImport } from './routes/dashboard/about'
 import { Route as DashboardNotFoundRouteImport } from './routes/dashboard/$not-found'
 import { Route as AuthSignupRouteImport } from './routes/auth/signup'
 import { Route as AuthSigninRouteImport } from './routes/auth/signin'
 
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -55,6 +50,11 @@ const DashboardAddLogRoute = DashboardAddLogRouteImport.update({
   path: '/add-log',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const DashboardAboutRoute = DashboardAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const DashboardNotFoundRoute = DashboardNotFoundRouteImport.update({
   id: '/$not-found',
   path: '/$not-found',
@@ -74,10 +74,10 @@ const AuthSigninRoute = AuthSigninRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteRouteWithChildren
-  '/about': typeof AboutRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/dashboard/$not-found': typeof DashboardNotFoundRoute
+  '/dashboard/about': typeof DashboardAboutRoute
   '/dashboard/add-log': typeof DashboardAddLogRoute
   '/dashboard/logs': typeof DashboardLogsRoute
   '/dashboard/profile': typeof DashboardProfileRoute
@@ -85,10 +85,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/dashboard/$not-found': typeof DashboardNotFoundRoute
+  '/dashboard/about': typeof DashboardAboutRoute
   '/dashboard/add-log': typeof DashboardAddLogRoute
   '/dashboard/logs': typeof DashboardLogsRoute
   '/dashboard/profile': typeof DashboardProfileRoute
@@ -98,10 +98,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteRouteWithChildren
-  '/about': typeof AboutRoute
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/dashboard/$not-found': typeof DashboardNotFoundRoute
+  '/dashboard/about': typeof DashboardAboutRoute
   '/dashboard/add-log': typeof DashboardAddLogRoute
   '/dashboard/logs': typeof DashboardLogsRoute
   '/dashboard/profile': typeof DashboardProfileRoute
@@ -112,10 +112,10 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/dashboard'
-    | '/about'
     | '/auth/signin'
     | '/auth/signup'
     | '/dashboard/$not-found'
+    | '/dashboard/about'
     | '/dashboard/add-log'
     | '/dashboard/logs'
     | '/dashboard/profile'
@@ -123,10 +123,10 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/about'
     | '/auth/signin'
     | '/auth/signup'
     | '/dashboard/$not-found'
+    | '/dashboard/about'
     | '/dashboard/add-log'
     | '/dashboard/logs'
     | '/dashboard/profile'
@@ -135,10 +135,10 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/dashboard'
-    | '/about'
     | '/auth/signin'
     | '/auth/signup'
     | '/dashboard/$not-found'
+    | '/dashboard/about'
     | '/dashboard/add-log'
     | '/dashboard/logs'
     | '/dashboard/profile'
@@ -148,20 +148,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
-  AboutRoute: typeof AboutRoute
   AuthSigninRoute: typeof AuthSigninRoute
   AuthSignupRoute: typeof AuthSignupRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -204,6 +196,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardAddLogRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/dashboard/about': {
+      id: '/dashboard/about'
+      path: '/about'
+      fullPath: '/dashboard/about'
+      preLoaderRoute: typeof DashboardAboutRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/dashboard/$not-found': {
       id: '/dashboard/$not-found'
       path: '/$not-found'
@@ -230,6 +229,7 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteRouteChildren {
   DashboardNotFoundRoute: typeof DashboardNotFoundRoute
+  DashboardAboutRoute: typeof DashboardAboutRoute
   DashboardAddLogRoute: typeof DashboardAddLogRoute
   DashboardLogsRoute: typeof DashboardLogsRoute
   DashboardProfileRoute: typeof DashboardProfileRoute
@@ -238,6 +238,7 @@ interface DashboardRouteRouteChildren {
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardNotFoundRoute: DashboardNotFoundRoute,
+  DashboardAboutRoute: DashboardAboutRoute,
   DashboardAddLogRoute: DashboardAddLogRoute,
   DashboardLogsRoute: DashboardLogsRoute,
   DashboardProfileRoute: DashboardProfileRoute,
@@ -251,7 +252,6 @@ const DashboardRouteRouteWithChildren = DashboardRouteRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   DashboardRouteRoute: DashboardRouteRouteWithChildren,
-  AboutRoute: AboutRoute,
   AuthSigninRoute: AuthSigninRoute,
   AuthSignupRoute: AuthSignupRoute,
 }

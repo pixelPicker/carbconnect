@@ -82,7 +82,7 @@ function RouteComponent() {
             <SelectContent className="bg-stone-300 font-Outfit border-stone-700">
               {categories.map((category) => (
                 <SelectItem
-                  className="my-1 text-stone-800 hover:bg-stone-800 transition-all hover:text-stone-300"
+                  className="text-stone-800 hover:bg-stone-800 transition-all hover:text-stone-300"
                   value={category.value}
                   key={category.value}
                 >

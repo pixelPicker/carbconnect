@@ -1,7 +1,9 @@
 import SideImage from '@/assets/images/illco2.jpg'
-import { useState, useEffect, useRef } from 'react'
+import { useState,  useRef } from 'react'
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
 import authClient from '@/api/auth/authClient'
+import { LoadingState } from '@/components/LoadingState'
+import { ErrorMessage } from '@/components/ErrorMessage'
 
 export const Route = createFileRoute('/auth/signup')({
   component: RouteComponent,
@@ -26,10 +28,15 @@ function Signup() {
     })
   }
 
+  if (formSubmitted) {
+    return <LoadingState message="Form Submitted. Wait while we are loading" />
+  }
+
   return (
     <section className="flex flex-col-reverse lg:flex-row overflow-y-hidden bg-orange-100 min-h-screen">
       <img
         src={SideImage}
+        loading="lazy"
         alt=""
         className="lg:w-5/9 lg:aspect-[16/9] object-cover rounded-t-3xl lg:rounded-r-3xl shadow-[3px_0px_10px_0px_rgba(51,51,51,.5)]"
       />
@@ -50,6 +57,7 @@ function Signup() {
           </Link>
           <br />
         </div>
+        {formResponseError && <ErrorMessage message={formResponseError} />}
         <button
           type="button"
           onClick={handleGoogleLogin}

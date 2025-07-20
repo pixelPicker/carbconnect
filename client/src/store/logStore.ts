@@ -1,4 +1,3 @@
-import { API_BASE_URL } from '@/lib/constants'
 import type { Log } from '@/types/logType'
 import { create } from 'zustand'
 
