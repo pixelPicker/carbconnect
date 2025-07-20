@@ -5,18 +5,17 @@ import {
   useNavigate,
 } from '@tanstack/react-router'
 import authClient from '../../api/auth/authClient'
-import { useUserStore } from '../../store/useUserStore'
+import { useUserStore } from '../../store/userStore'
 import { useEffect, type ComponentType, type SVGProps } from 'react'
-import { useSessionStore } from '../../store/useSessionStore'
+import { useSessionStore } from '../../store/sessionStore'
 import { LoadingState } from '@/components/LoadingState'
 import { ErrorState } from '@/components/ErrorState'
 import { CogIcon } from '@heroicons/react/24/outline'
-import { UserIcon } from '@heroicons/react/24/outline'
 import { CalendarIcon } from '@heroicons/react/24/outline'
 import { ChatBubbleLeftRightIcon } from '@heroicons/react/24/outline'
-import { BookOpenIcon } from '@heroicons/react/24/outline'
 import { HomeIcon } from '@heroicons/react/24/outline'
-import Logo from '@/components/Logo'
+import { useLogStore } from '@/store/logStore'
+import { API_BASE_URL } from '@/lib/constants'
 
 export const Route = createFileRoute('/dashboard')({
   component: RouteComponent,
@@ -52,7 +51,23 @@ function RouteComponent() {
 function Dashboard() {
   const { user } = useUserStore()
   const { session } = useSessionStore((s) => s)
+  const { fetchLogs } = useLogStore((s) => s)
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(`${API_BASE_URL}log/fetchAll`, {
+        credentials: 'include',
+      })
+      if (!res.ok) {
+        return
+      }
+      const resBody = await res.json()
+      fetchLogs(resBody.log)
+    }
+    fetchData()
+  }, [])
+
   if (!user || !session) {
     navigate({ to: '/auth/signin' })
     return
@@ -66,7 +81,6 @@ function Dashboard() {
       label: 'Profile',
       icon: ChatBubbleLeftRightIcon,
     },
-    { to: '/dashboard/settings', label: 'Settings', icon: CogIcon },
   ]
 
   return (
@@ -77,7 +91,7 @@ function Dashboard() {
         ))}
       </ul>
       <div className="w-[1.5px] h-full bg-stone-300"></div>
-      <div className="px-4 bg-stone-100 py-2 flex-1 font-Outfit">
+      <div className="px-4 bg-stone-100 py-2 flex-1 font-Outfit overflow-y-scroll">
         <Outlet />
       </div>
     </div>

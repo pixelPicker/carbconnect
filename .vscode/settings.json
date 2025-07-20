@@ -1,0 +1,12 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "driver": "PostgreSQL",
+      "database": "carbconnect",
+      "name": "me",
+      "connectString": "postgresql://me:hola@localhost/carbconnect?sslmode=disable"
+    }
+  ]
+}

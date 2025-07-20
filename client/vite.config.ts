@@ -12,9 +12,10 @@ export default defineConfig({
     viteReact(),
     tailwindcss(),
   ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
+  build: {
+    target: 'esnext',
+    minify: 'esbuild',
+    sourcemap: false,
   },
   resolve: {
     alias: {

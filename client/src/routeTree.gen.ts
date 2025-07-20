@@ -13,7 +13,9 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
+import { Route as DashboardProfileRouteImport } from './routes/dashboard/profile'
 import { Route as DashboardLogsRouteImport } from './routes/dashboard/logs'
+import { Route as DashboardAddLogRouteImport } from './routes/dashboard/add-log'
 import { Route as DashboardNotFoundRouteImport } from './routes/dashboard/$not-found'
 import { Route as AuthSignupRouteImport } from './routes/auth/signup'
 import { Route as AuthSigninRouteImport } from './routes/auth/signin'
@@ -38,9 +40,19 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const DashboardProfileRoute = DashboardProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const DashboardLogsRoute = DashboardLogsRouteImport.update({
   id: '/logs',
   path: '/logs',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
+const DashboardAddLogRoute = DashboardAddLogRouteImport.update({
+  id: '/add-log',
+  path: '/add-log',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 const DashboardNotFoundRoute = DashboardNotFoundRouteImport.update({
@@ -66,7 +78,9 @@ export interface FileRoutesByFullPath {
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/dashboard/$not-found': typeof DashboardNotFoundRoute
+  '/dashboard/add-log': typeof DashboardAddLogRoute
   '/dashboard/logs': typeof DashboardLogsRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
@@ -75,7 +89,9 @@ export interface FileRoutesByTo {
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/dashboard/$not-found': typeof DashboardNotFoundRoute
+  '/dashboard/add-log': typeof DashboardAddLogRoute
   '/dashboard/logs': typeof DashboardLogsRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
   '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
@@ -86,7 +102,9 @@ export interface FileRoutesById {
   '/auth/signin': typeof AuthSigninRoute
   '/auth/signup': typeof AuthSignupRoute
   '/dashboard/$not-found': typeof DashboardNotFoundRoute
+  '/dashboard/add-log': typeof DashboardAddLogRoute
   '/dashboard/logs': typeof DashboardLogsRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
@@ -98,7 +116,9 @@ export interface FileRouteTypes {
     | '/auth/signin'
     | '/auth/signup'
     | '/dashboard/$not-found'
+    | '/dashboard/add-log'
     | '/dashboard/logs'
+    | '/dashboard/profile'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -107,7 +127,9 @@ export interface FileRouteTypes {
     | '/auth/signin'
     | '/auth/signup'
     | '/dashboard/$not-found'
+    | '/dashboard/add-log'
     | '/dashboard/logs'
+    | '/dashboard/profile'
     | '/dashboard'
   id:
     | '__root__'
@@ -117,7 +139,9 @@ export interface FileRouteTypes {
     | '/auth/signin'
     | '/auth/signup'
     | '/dashboard/$not-found'
+    | '/dashboard/add-log'
     | '/dashboard/logs'
+    | '/dashboard/profile'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
@@ -159,11 +183,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/dashboard/profile': {
+      id: '/dashboard/profile'
+      path: '/profile'
+      fullPath: '/dashboard/profile'
+      preLoaderRoute: typeof DashboardProfileRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/dashboard/logs': {
       id: '/dashboard/logs'
       path: '/logs'
       fullPath: '/dashboard/logs'
       preLoaderRoute: typeof DashboardLogsRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
+    '/dashboard/add-log': {
+      id: '/dashboard/add-log'
+      path: '/add-log'
+      fullPath: '/dashboard/add-log'
+      preLoaderRoute: typeof DashboardAddLogRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
     '/dashboard/$not-found': {
@@ -192,13 +230,17 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteRouteChildren {
   DashboardNotFoundRoute: typeof DashboardNotFoundRoute
+  DashboardAddLogRoute: typeof DashboardAddLogRoute
   DashboardLogsRoute: typeof DashboardLogsRoute
+  DashboardProfileRoute: typeof DashboardProfileRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardNotFoundRoute: DashboardNotFoundRoute,
+  DashboardAddLogRoute: DashboardAddLogRoute,
   DashboardLogsRoute: DashboardLogsRoute,
+  DashboardProfileRoute: DashboardProfileRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
 

@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, unique, boolean, foreignKey } from "drizzle-orm/pg-core"
+import { pgTable, text, timestamp, unique, boolean, foreignKey, index, check, serial, varchar, real } from "drizzle-orm/pg-core"
 import { sql } from "drizzle-orm"
 
 
@@ -67,4 +67,18 @@ export const session = pgTable("session", {
 			name: "session_user_id_user_id_fk"
 		}).onDelete("cascade"),
 	unique("session_token_unique").on(table.token),
+]);
+
+export const carbonLogs = pgTable("carbon_logs", {
+	id: serial().primaryKey().notNull(),
+	userId: varchar("user_id", { length: 255 }).notNull(),
+	category: varchar({ length: 50 }).notNull(),
+	quantity: real().notNull(),
+	emissionFactor: real("emission_factor").notNull(),
+	emissionTotal: real("emission_total").generatedAlwaysAs(sql`(quantity * emission_factor)`),
+	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
+}, (table) => [
+	index("idx_user_id").using("btree", table.userId.asc().nullsLast().op("text_ops")),
+	check("carbon_logs_category_check", sql`(category)::text = ANY ((ARRAY['transport'::character varying, 'energy'::character varying, 'food'::character varying, 'waste'::character varying, 'water'::character varying, 'shopping'::character varying, 'dailyActivities'::character varying])::text[])`),
+	check("carbon_logs_quantity_check", sql`quantity >= (0)::double precision`),
 ]);

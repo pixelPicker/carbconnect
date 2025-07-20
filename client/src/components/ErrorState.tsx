@@ -3,7 +3,7 @@ import { useNavigate } from '@tanstack/react-router'
 
 export const ErrorState = ({ refetch }: { refetch: () => void }) => {
   const navigate = useNavigate()
-
+  
   return (
     <div className="min-h-screen font-Outfit flex items-center justify-center bg text-Text px-4">
       <div className=" shadow-lg rounded-2xl p-10 text-center max-w-md w-full border-[2px] border-Text">
