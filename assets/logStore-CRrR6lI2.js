@@ -1,0 +1,1 @@
+import{c as l}from"./react-BFH4rVta.js";const a=l(s=>({logs:[],addLog:async o=>s(e=>({logs:[...e.logs,o]})),deleteAllLogs:async()=>{s({logs:[]})},deleteLog:async o=>{s(e=>({logs:e.logs.filter(g=>g.id!==o)}))},fetchLogs:o=>{s({logs:o})}}));export{a as u};
